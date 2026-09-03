@@ -1,3 +1,4 @@
+@import "overlayscrollbars/styles/overlayscrollbars.css";
 @import "tailwindcss";
 
 @theme {
@@ -18,9 +19,6 @@
 
 html {
   scroll-behavior: smooth;
-  /* Reserve the scrollbar's width permanently so opening a dropdown/dialog
-     that locks body scroll never shifts the page horizontally. */
-  scrollbar-gutter: stable;
 }
 
 body {
@@ -35,26 +33,20 @@ body {
   color: var(--color-cream);
 }
 
-/* Scrollbar, styled to match the site (cream track, ink thumb that
-   turns accent-orange on hover) instead of the browser default. */
-html {
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: var(--color-ink-soft) var(--color-cream);
-}
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-cream);
-}
-::-webkit-scrollbar-thumb {
-  background-color: var(--color-ink-soft);
-  border-radius: 999px;
-  border: 3px solid var(--color-cream);
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-accent);
+/* OverlayScrollbars theme: a thin floating bar (no reserved gutter,
+   never collides with the sticky header) that fades in on scroll/hover
+   and out again, styled to the site's ink/accent palette. */
+.os-theme-academy {
+  --os-size: 8px;
+  --os-padding-perpendicular: 2px;
+  --os-padding-axis: 3px;
+  --os-track-border-radius: 999px;
+  --os-track-bg: transparent;
+  --os-track-bg-hover: rgba(15, 18, 22, 0.05);
+  --os-handle-border-radius: 999px;
+  --os-handle-bg: rgba(15, 18, 22, 0.32);
+  --os-handle-bg-hover: rgba(226, 87, 31, 0.85);
+  --os-handle-bg-active: #e2571f;
 }
 
 @keyframes rise {
