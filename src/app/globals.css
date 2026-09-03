@@ -33,6 +33,18 @@ body {
   color: var(--color-cream);
 }
 
+/* Radix scroll lock (react-remove-scroll, used by Select) sets
+   `body { overflow: hidden }` while a dropdown is open. That turns <body>
+   into a scroll container, so the sticky header starts sticking to the
+   top of the document instead of the viewport and disappears upward.
+   `overflow: clip` clips identically but does NOT create a scroll
+   container, so position: sticky keeps resolving against the viewport.
+   `html` prefix is needed to out-specify Radix's own !important rule,
+   which is injected at runtime and would otherwise win on source order. */
+html body[data-scroll-locked] {
+  overflow: clip !important;
+}
+
 /* OverlayScrollbars theme: a thin floating bar (no reserved gutter,
    never collides with the sticky header) that fades in on scroll/hover
    and out again, styled to the site's ink/accent palette. */
