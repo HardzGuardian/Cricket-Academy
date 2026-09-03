@@ -66,7 +66,7 @@ export default function ProgramsPage() {
               <Reveal key={p.num}>
                 <article className="grid md:grid-cols-2 gap-[clamp(22px,3vw,54px)] items-center">
                   <div className="relative rounded-[20px] overflow-hidden aspect-[16/11] bg-cream-2">
-                    <Image src={p.img} alt={p.title} fill className="object-cover" />
+                    <Image src={p.img} alt={p.alt} fill className="object-cover" />
                   </div>
                   <div>
                     <div className="font-display font-extrabold text-[13px] text-accent">

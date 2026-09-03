@@ -91,24 +91,28 @@ export const PILLARS = [
     title: "High level training module",
     body: "SCA has been indulged in making students aware of the old-style what nowadays seen to be vanishing — SCA uses the Orthodox Training Module to train young cricketers.",
     img: "/images/pillar-1.jpg",
+    alt: "Coach steadying a young batsman's helmet as he plays a shot in the practice nets",
   },
   {
     num: "02",
     title: "Tournaments",
     body: "With associate clubs and companies we conduct tournaments like Time Shield, the U-12 Bhaskar Thakur Memorial Selection Tournament, and the Oriental Shield — each giving cricketers a scope to improve their skills and confidence.",
     img: "/images/pillar-2.jpg",
+    alt: "Squad celebrating a tournament win with trophies, medals and certificates on the maidan",
   },
   {
     num: "03",
     title: "Fitness and mental health programs",
     body: "SCA looks after the overall progress and growth of cricketers, conducting fitness and mental health camps for the stability of mind and body, including sessions by sports experts.",
     img: "/images/pillar-3.jpg",
+    alt: "Coach addressing a group of seated young cricketers during an indoor team talk",
   },
   {
     num: "04",
     title: "Interactive sessions",
     body: "We want our young cricketers to understand the game through the eyes of cricketers and other sports experts, and provide a platform to interact with them and stay inspired.",
     img: "/images/pillar-4.jpg",
+    alt: "Young cricketers posing on stage with guests in front of a Star Sports backdrop",
   },
 ];
 
