@@ -239,16 +239,13 @@ body > .os-scrollbar-vertical {
    marquee, the hero background's slow zoom, and the scroll-triggered
    .reveal class are all plain CSS animations -- MotionConfig has no
    reach into them. This is the equivalent coverage for that half of the
-   site's animation, collapsing everything to an instant, static end
-   state rather than just speeding it up (marquee especially: a
-   never-ending scroll has no meaningful "faster" version for someone
-   who's asked for less motion, only "on" or "off"). */
+   site's animation, collapsing one-shot reveals to their instant, static
+   end state. */
 @media (prefers-reduced-motion: reduce) {
   .animate-rise,
   .animate-rise-sm,
   .animate-fade-in,
   .animate-zoom-out,
-  .animate-marquee,
   .animate-grow-x,
   .animate-pop-in,
   .animate-lightbox-backdrop,
@@ -262,5 +259,14 @@ body > .os-scrollbar-vertical {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  /* The marquee is content, not a one-shot reveal -- freezing it outright
+     reads as broken (the ticker looks stuck, not "reduced"), and a
+     continuous scroll has no natural resting frame to freeze on. Slow it
+     down hard instead: still respects the intent of the setting, but the
+     ticker keeps doing its job. */
+  .animate-marquee {
+    animation-duration: 140s !important;
   }
 }
