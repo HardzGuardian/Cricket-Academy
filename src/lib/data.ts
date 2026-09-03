@@ -213,19 +213,19 @@ export type GalleryItem = {
 };
 
 export const GALLERY: GalleryItem[] = [
-  { id: "g1", src: "/images/gallery-1.jpg", alt: "Batsman in the nets at Cross Maidan", ratio: "4 / 5", span: 2 },
+  { id: "g1", src: "/images/gallery-1.jpg", alt: "Coach adjusting a young batsman's grip on the practice ground, nets in the background", ratio: "4 / 5", span: 2 },
   { id: "g2", src: "/images/about-2.jpg", alt: "Player with a trophy, medal and SCA Certificate of Honour", ratio: "4 / 3", span: 1 },
   { id: "g3", src: "/images/facilities-ground.jpg", alt: "Bowler mid-delivery with batsman, umpire and fielders", ratio: "4 / 3", span: 1 },
   { id: "g4", src: "/images/about-1.jpg", alt: "SCA junior squad seated with certificates, medals and a trophy", ratio: "4 / 3", span: 1 },
-  { id: "g5", src: "/images/gallery-5.jpg", alt: "Training session", ratio: "4 / 5", span: 2 },
-  { id: "g6", src: "/images/gallery-6.jpg", alt: "Bowling practice", ratio: "4 / 3", span: 1 },
-  { id: "g7", src: "/images/gallery-7.jpg", alt: "Fielding drill", ratio: "4 / 3", span: 1 },
-  { id: "g8", src: "/images/gallery-8.jpg", alt: "Match day at the maidan", ratio: "4 / 3", span: 1 },
-  { id: "g9", src: "/images/gallery-9.jpg", alt: "Batting drill", ratio: "4 / 3", span: 1 },
-  { id: "g10", src: "/images/gallery-10.jpg", alt: "Team huddle", ratio: "4 / 3", span: 1 },
-  { id: "g11", src: "/images/gallery-11.jpg", alt: "Net session", ratio: "4 / 3", span: 1 },
-  { id: "g12", src: "/images/gallery-12.jpg", alt: "Young cricketers at SCA", ratio: "4 / 3", span: 1 },
-  { id: "g13", src: "/images/gallery-13.jpg", alt: "Presentation after a tournament", ratio: "4 / 3", span: 1 },
+  { id: "g5", src: "/images/gallery-5.jpg", alt: "Young players celebrating a wicket during a match, umpire at the stumps", ratio: "4 / 5", span: 2 },
+  { id: "g6", src: "/images/gallery-6.jpg", alt: "Two batsmen in whites and helmets walking out to bat during a match", ratio: "4 / 3", span: 1 },
+  { id: "g7", src: "/images/gallery-7.jpg", alt: "Two teams lined up on the pitch for a handshake before a match, city skyline behind", ratio: "4 / 3", span: 1 },
+  { id: "g8", src: "/images/gallery-8.jpg", alt: "Five young players smiling with a shared trophy and individual trophies after a win", ratio: "4 / 3", span: 1 },
+  { id: "g9", src: "/images/gallery-9.jpg", alt: "Players celebrating together on the field after a match", ratio: "4 / 3", span: 1 },
+  { id: "g10", src: "/images/gallery-10.jpg", alt: "Player receiving a memento from an official at a felicitation ceremony, guests seated and clapping", ratio: "4 / 3", span: 1 },
+  { id: "g11", src: "/images/gallery-11.jpg", alt: "Official presenting flowers and shaking hands with a player at a felicitation function", ratio: "4 / 3", span: 1 },
+  { id: "g12", src: "/images/gallery-12.jpg", alt: "Team group photo with a trophy at the practice ground", ratio: "4 / 3", span: 1 },
+  { id: "g13", src: "/images/gallery-13.jpg", alt: "Three young teammates smiling with a trophy after a tournament win", ratio: "4 / 3", span: 1 },
 ];
 
 // Plain prose lives here. Interpolated/marked-up prose — specifically About's
