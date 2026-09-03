@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import type { GalleryItem } from "@/lib/data";
-import PhotoPlaceholder from "./PhotoPlaceholder";
 
 export default function GalleryGrid({
   items,
@@ -48,17 +48,19 @@ export default function GalleryGrid({
             key={g.id}
             type="button"
             onClick={() => setOpenIndex(i)}
-            className="border-0 p-0 cursor-zoom-in rounded-2xl overflow-hidden bg-cream-2 text-left"
+            className="relative border-0 p-0 cursor-zoom-in rounded-2xl overflow-hidden bg-cream-2 text-left"
             style={
               dense
                 ? { gridRow: `span ${g.span}`, aspectRatio: g.ratio }
                 : { aspectRatio: g.ratio }
             }
           >
-            <PhotoPlaceholder
-              caption={g.alt}
-              tone={g.tone}
-              className="w-full h-full transition-transform duration-700 hover:scale-105"
+            <Image
+              src={g.src}
+              alt={g.alt}
+              fill
+              sizes="(max-width: 768px) 50vw, 25vw"
+              className="object-cover transition-transform duration-700 hover:scale-105"
             />
           </button>
         ))}
@@ -71,9 +73,9 @@ export default function GalleryGrid({
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-3xl aspect-[4/3] rounded-xl overflow-hidden animate-pop-in cursor-default"
+            className="relative w-full max-w-3xl aspect-[4/3] rounded-xl overflow-hidden animate-pop-in cursor-default"
           >
-            <PhotoPlaceholder caption={active.alt} tone={active.tone} className="w-full h-full" />
+            <Image src={active.src} alt={active.alt} fill className="object-contain" />
           </div>
           <div
             onClick={(e) => e.stopPropagation()}

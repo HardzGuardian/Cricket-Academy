@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { FACILITIES, SITE } from "@/lib/data";
-import PhotoPlaceholder from "./PhotoPlaceholder";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
@@ -10,18 +10,18 @@ export default function Facilities() {
 
       <div className="grid lg:grid-cols-2 gap-[clamp(28px,4vw,60px)] items-start">
         <Reveal className="relative rounded-3xl overflow-hidden aspect-[4/5]">
-          <PhotoPlaceholder caption="Photo — the home ground" tone="ink" className="absolute inset-0" />
+          <Image src="/images/facilities-ground.jpg" alt="Cross Maidan ground" fill className="object-cover" />
           <div className="absolute inset-x-4 bottom-4 p-5 rounded-2xl bg-ink/72 backdrop-blur-sm text-cream">
             <div className="text-[10px] tracking-[0.2em] uppercase text-cream/60">Home ground</div>
             <div className="mt-1.5 font-display font-semibold text-xl tracking-tight">
-              {SITE.area}
+              Cross Maidan, {SITE.area}
             </div>
           </div>
         </Reveal>
 
         <Reveal>
           <h2 className="font-display font-extrabold text-[clamp(30px,4vw,50px)] leading-[1.04] tracking-[-0.035em] max-w-[20ch]">
-            Everything a season needs, on one ground.
+            Everything a season needs, in one maidan.
           </h2>
           <div className="mt-6.5 grid">
             {FACILITIES.map((f) => (

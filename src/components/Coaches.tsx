@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { COACHES } from "@/lib/data";
-import PhotoPlaceholder from "./PhotoPlaceholder";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
@@ -14,8 +14,10 @@ export default function Coaches() {
             Coaches and fitness trainers.
           </Reveal>
           <p className="text-[clamp(15px,1.25vw,17px)] leading-relaxed text-cream/72 max-w-[48ch]">
-            A mix of playing experience and specialist training staff — batting,
-            bowling, fitness and recovery are each led by someone who does only that.
+            SCA has the amalgamation of coaches and fitness trainers who unlatch
+            concealed talents in the academy to train them to be zestful and spirited
+            individuals. Coaching here is more of an amicable approach to teaching in a
+            better and innovative way.
           </p>
         </div>
 
@@ -23,7 +25,12 @@ export default function Coaches() {
           {COACHES.map((c) => (
             <Reveal key={c.name} className="aspect-[3/4]">
               <figure className="relative m-0 rounded-[20px] overflow-hidden aspect-[3/4] bg-forest-2 h-full">
-                <PhotoPlaceholder caption="Photo — coach headshot" tone="forest" className="absolute inset-0" />
+                <Image
+                  src={c.img}
+                  alt={c.name}
+                  fill
+                  className="object-cover object-[50%_20%] saturate-90"
+                />
                 <figcaption className="absolute inset-x-0 bottom-0 px-4.5 pt-5.5 pb-4.5 bg-gradient-to-t from-[rgba(11,22,16,0.92)] to-transparent">
                   <div className="text-[9.5px] tracking-[0.2em] uppercase text-accent font-bold">
                     {c.role}

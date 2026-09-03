@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { NAV, SITE } from "@/lib/data";
@@ -15,11 +16,7 @@ export default function Header() {
           className="flex items-center gap-2.5 text-ink hover:text-ink"
           onClick={() => setOpen(false)}
         >
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="9.5" stroke="#E2571F" strokeWidth="1.6" />
-            <path d="M4 13.5C7 11 17 11 20 13.5" stroke="#E2571F" strokeWidth="1.4" />
-            <path d="M4 10.5C7 13 17 13 20 10.5" stroke="#E2571F" strokeWidth="1.4" />
-          </svg>
+          <Image src={SITE.logo} alt={SITE.name} width={34} height={34} className="h-8.5 w-auto" priority />
           <span className="grid gap-0.5 leading-none">
             <span className="font-display font-extrabold text-[15px] tracking-tight">
               {SITE.name}

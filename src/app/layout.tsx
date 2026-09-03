@@ -23,9 +23,9 @@ const serif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: `${SITE.name} — Cricket Coaching in Mumbai`,
+  title: `${SITE.name} — Best Cricket Academy in Mumbai`,
   description:
-    "Structured, age-wise cricket coaching in Mumbai for players aged 6 to 22 — technique, fitness and match temperament under BCCI-certified coaches.",
+    "A group of cricket enthusiasts with keen and passionate intent to produce proficient cricketers for representing on national and international level, at Cross Maidan, Churchgate.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

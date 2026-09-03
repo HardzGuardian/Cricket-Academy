@@ -72,11 +72,11 @@ export default function Admission() {
       <div className="grid lg:grid-cols-2 gap-[clamp(28px,4vw,64px)] items-start">
         <Reveal>
           <h2 className="font-display font-extrabold text-[clamp(32px,4.4vw,54px)] leading-[1.02] tracking-[-0.035em] max-w-[18ch]">
-            Need a trial slot?
+            Need an expert?
           </h2>
           <p className="mt-5 text-[clamp(15px,1.3vw,18px)] leading-relaxed text-ink-soft max-w-[46ch]">
-            Leave your contact details below and a coach will call you back to confirm a
-            free trial session.
+            You are more than welcome to leave your contact info and we will be in
+            touch shortly.
           </p>
 
           <div className="mt-8 grid gap-0.5">

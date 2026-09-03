@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import PhotoPlaceholder from "@/components/PhotoPlaceholder";
 import Reveal from "@/components/Reveal";
 import { PILLARS, PROGRAMS } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Training Programs — Coverdrive Cricket Academy",
-  description: "Age-wise cricket training batches from Foundation to Elite/Pro Track.",
+  title: "Training Programs — Sunil Cricket Academy",
+  description: "Age-wise cricket training batches and the orthodox training module at Sunil Cricket Academy.",
 };
-
-const TONES = ["forest", "ink", "accent", "forest"] as const;
 
 export default function ProgramsPage() {
   return (
@@ -24,11 +22,12 @@ export default function ProgramsPage() {
               Training
             </div>
             <h1 className="mt-4.5 font-display font-extrabold text-[clamp(40px,8vw,96px)] leading-[0.94] tracking-tight max-w-[16ch] animate-rise [animation-delay:0.08s]">
-              Programs built around the player&apos;s stage, not their age alone.
+              Programs &amp; the orthodox module
             </h1>
             <p className="mt-6.5 max-w-[58ch] text-[clamp(15px,1.3vw,19px)] leading-relaxed text-cream/72 animate-rise [animation-delay:0.2s]">
-              Every batch is capped in size and reassessed every term. A player moves
-              up a level on ability, not on the calendar.
+              SCA has been indulged in making students aware of the old style what
+              nowadays is seen to be vanishing. SCA uses the Orthodox Training Module to
+              train young cricketers.
             </p>
           </div>
         </section>
@@ -67,14 +66,12 @@ export default function ProgramsPage() {
           </div>
 
           <div className="mt-[clamp(40px,6vw,80px)] grid gap-[clamp(20px,3vw,40px)]">
-            {PILLARS.map((p, i) => (
+            {PILLARS.map((p) => (
               <Reveal key={p.num}>
                 <article className="grid md:grid-cols-2 gap-[clamp(22px,3vw,54px)] items-center">
-                  <PhotoPlaceholder
-                    caption={`Photo — ${p.title.toLowerCase()}`}
-                    tone={TONES[i]}
-                    className="rounded-[20px] aspect-[16/11]"
-                  />
+                  <div className="relative rounded-[20px] overflow-hidden aspect-[16/11] bg-cream-2">
+                    <Image src={p.img} alt={p.title} fill className="object-cover" />
+                  </div>
                   <div>
                     <div className="font-display font-extrabold text-[13px] text-accent">
                       Pillar {p.num}

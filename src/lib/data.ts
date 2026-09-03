@@ -1,15 +1,18 @@
 export const SITE = {
-  name: "Coverdrive Cricket Academy",
-  shortName: "Coverdrive CA",
-  tagline: "Built on the boundary. Forged in the nets.",
-  founded: 2014,
-  founderName: "Coach Arjun Deshmukh",
-  area: "Bandra West, Mumbai",
-  address: "123 Sportsfield Road, Bandra West, Mumbai, Maharashtra 400050",
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
-  email: "info@coverdrivecricketacademy.in",
-  mapsHref: "https://maps.google.com/?q=Bandra+West+Mumbai",
+  name: "Sunil Cricket Academy",
+  shortName: "SCA",
+  tagline: "Best Cricket Academy in Mumbai",
+  founded: 2016,
+  founderName: "Mr. Sunil Soni",
+  area: "Churchgate, Mumbai",
+  address:
+    "Plot No. 9, Cross Maidan, M.G. Road, behind F.S. Market, Churchgate, Mumbai, Maharashtra 400020",
+  phone: "+91 97684 85976",
+  phoneHref: "tel:+919768485976",
+  email: "sunilcricketacademy.94@gmail.com",
+  mapsHref:
+    "https://maps.google.com/maps?q=Plot%20No%20-%209%20%2C%20Corss%20maidan%2C%20M.G.%20Road%2CBehind%20F.S%20Market%2C%20Churchgate%2C%20Mumbai%2C%20Maharashtra%20400020",
+  logo: "/images/logo.png",
 };
 
 export const NAV = [
@@ -22,197 +25,196 @@ export const NAV = [
 ];
 
 export const SOCIALS = [
-  { abbr: "Fb", label: "Facebook", href: "https://facebook.com" },
-  { abbr: "Ig", label: "Instagram", href: "https://instagram.com" },
-  { abbr: "Yt", label: "YouTube", href: "https://youtube.com" },
+  { abbr: "Fb", label: "Facebook", href: "https://www.facebook.com/SUNILCRICKETACADEMY/" },
+  { abbr: "Ig", label: "Instagram", href: "https://www.instagram.com/p/B4C2Ii9p0vw/" },
+  { abbr: "Yt", label: "YouTube", href: "https://www.youtube.com/channel/UCvL4AO4toejRf4mP5RH-org" },
 ];
 
 export const HERO_FACTS = [
   { v: String(SITE.founded), k: `Founded by ${SITE.founderName}` },
-  { v: "Bandra", k: "Home ground, Mumbai" },
-  { v: "6–22", k: "Age groups coached" },
-  { v: "4", k: "Pillars of our method" },
+  { v: "Churchgate", k: "Cross Maidan, Mumbai" },
+  { v: "6–18", k: "Age groups coached" },
+  { v: "4", k: "Pillars of the SCA method" },
 ];
 
 export const TICKER = [
   "Admissions open · 2026 season",
-  "Age-wise batches",
-  "BCCI-certified coaches",
-  "Video-backed feedback",
-  "Match exposure every month",
-  "Strength & conditioning gym",
-  "Free trial session",
+  "Time Shield",
+  "Orthodox training module",
+  "U-12 Bhaskar Thakur Memorial",
+  "Oriental Shield",
+  "Fitness & mental health camps",
+  "Interactive sessions",
 ];
 
 export const PROGRAMS = [
   {
     num: "01",
-    tag: "Ages 6–10",
-    title: "Foundation",
-    body: "Motor skills, hand-eye coordination and a love for the game, taught through play-based drills in small groups.",
-    meta: ["4 sessions / week", "Small groups"],
+    tag: "Ages 6–12",
+    title: "Junior Foundation",
+    body: "Grip, stance and basic technique taught through the orthodox module, with drills sized for young players and plenty of net time.",
+    meta: ["Weekday batches", "Small groups"],
   },
   {
     num: "02",
-    tag: "Ages 11–14",
-    title: "Junior Development",
-    body: "Technical correction in batting, bowling and fielding, plus introductory strength and conditioning work.",
-    meta: ["5 sessions / week", "Skill assessments"],
+    tag: "Ages 13–18",
+    title: "Sub-Junior & Junior Squad",
+    body: "Match-focused training for school and club cricketers preparing for age-group selection, with individual correction from the head coach.",
+    meta: ["Nets + match play", "Selection prep"],
   },
   {
     num: "03",
-    tag: "Ages 15–18",
-    title: "Advanced Performance",
-    body: "Match-intensity training, video analysis, tournament selection prep and structured fitness benchmarks.",
-    meta: ["6 sessions / week", "Tournament prep"],
+    tag: "All levels",
+    title: "Personal Coaching",
+    body: "One-to-one sessions on a specific problem — a bowling action, a trigger movement, a shot that keeps getting you out.",
+    meta: ["1-to-1", "By appointment"],
   },
   {
     num: "04",
-    tag: "Ages 18–22",
-    title: "Elite / Pro Track",
-    body: "One-to-one coaching, trial preparation for state and university teams, sports-science backed conditioning.",
-    meta: ["By assessment", "1-on-1 coaching"],
+    tag: "Season breaks",
+    title: "Summer & Vacation Camp",
+    body: "Intensive camps combining skills, fitness and interactive sessions with cricketers and sports experts.",
+    meta: ["Camp format", "Ages 6–18"],
   },
 ];
 
 export const PILLARS = [
   {
     num: "01",
-    title: "Technique first, always",
-    body: "Every batch starts with the fundamentals — grip, stance, base movements — before anything else. We'd rather build a correct habit slowly than a fast one that breaks under pressure.",
+    title: "High level training module",
+    body: "SCA has been indulged in making students aware of the old-style what nowadays seen to be vanishing — SCA uses the Orthodox Training Module to train young cricketers.",
+    img: "/images/pillar-1.jpg",
   },
   {
     num: "02",
-    title: "Match temperament",
-    body: "Monthly fixtures against partner academies and in-house tournaments mean players face real pressure long before a selection trial does.",
+    title: "Tournaments",
+    body: "With associate clubs and companies we conduct tournaments like Time Shield, the U-12 Bhaskar Thakur Memorial Selection Tournament, and the Oriental Shield — each giving cricketers a scope to improve their skills and confidence.",
+    img: "/images/pillar-2.jpg",
   },
   {
     num: "03",
-    title: "Fitness & recovery",
-    body: "A dedicated strength coach and an on-call physiotherapist manage conditioning and injury prevention side by side with skills training.",
+    title: "Fitness and mental health programs",
+    body: "SCA looks after the overall progress and growth of cricketers, conducting fitness and mental health camps for the stability of mind and body, including sessions by sports experts.",
+    img: "/images/pillar-3.jpg",
   },
   {
     num: "04",
-    title: "Video-backed feedback",
-    body: "Every player gets a fortnightly video review — frame-by-frame technique breakdowns shared with the player and their parents.",
+    title: "Interactive sessions",
+    body: "We want our young cricketers to understand the game through the eyes of cricketers and other sports experts, and provide a platform to interact with them and stay inspired.",
+    img: "/images/pillar-4.jpg",
   },
 ];
 
 export const COACHES = [
-  { role: "Founder & Head Coach", name: "Arjun Deshmukh" },
-  { role: "Batting & Junior Programs", name: "Priya Kulkarni" },
-  { role: "Fast Bowling Coach", name: "Sameer Patil" },
-  { role: "Fitness & Conditioning", name: "Vikram Rao" },
-  { role: "Sports Physiotherapist", name: "Dr. Neha Shah" },
+  { role: "Head Coach & Director", name: "Mr. Sunil Soni", img: "/images/coaches/sunil-soni.jpg" },
+  { role: "Mentor", name: "Sir Vidya Paradkar", img: "/images/coaches/vidya-paradkar.jpg" },
+  { role: "Fitness Head Trainer", name: "Mr. Aakash Luthra", img: "/images/coaches/aakash-luthra.jpg" },
+  { role: "Joint Secretary", name: "Mr. Jitendra Ingle", img: "/images/coaches/jitendra-ingle.jpg" },
+  { role: "Assistant Coach", name: "Mr. Ranjeet Soni", img: "/images/coaches/ranjeet-soni.jpg" },
 ];
 
 export const FACILITIES = [
   {
     num: "01",
-    title: "Turf & cement nets",
-    body: "Eight practice nets — four turf, four cement — so batches train under varied match conditions year-round.",
+    title: "Cross Maidan ground",
+    body: "Practice and matches on one of Mumbai's historic maidans, minutes from Churchgate station.",
   },
   {
     num: "02",
-    title: "Bowling machines",
-    body: "Variable-speed machines for dedicated pace and spin-facing practice, used across every advanced batch.",
+    title: "Turf and matting nets",
+    body: "Dedicated net sessions so every player in a batch gets meaningful time with bat and ball.",
   },
   {
     num: "03",
-    title: "Strength & conditioning gym",
-    body: "An on-site gym supervised by a certified strength coach, built into every player's weekly schedule.",
+    title: "Fitness and conditioning",
+    body: "Sessions led by a dedicated fitness head trainer alongside skills coaching.",
   },
   {
     num: "04",
-    title: "Video analysis room",
-    body: "Frame-by-frame technique review after every fortnightly assessment, shared with players and parents alike.",
+    title: "Mental health camps",
+    body: "Sports-psychology sessions conducted by experts for stability of mind and body.",
   },
   {
     num: "05",
-    title: "Recovery & physio zone",
-    body: "On-call physiotherapy and structured injury-prevention routines built around each player's training load.",
+    title: "Tournament hosting",
+    body: "In-house tournaments organised with associate clubs and companies through the season.",
   },
 ];
 
 export const STATS = [
-  { to: 11, label: "Years of coaching", plain: false },
-  { to: 500, label: "Students trained", plain: false, suffix: "+" },
-  { to: 14, label: "State-level players produced", plain: false },
-  { to: 27, label: "Tournaments won", plain: false },
+  { to: SITE.founded, label: "Academy founded", plain: true, suffix: "" },
+  { to: 4, label: "Pillars of the SCA method", suffix: "" },
+  { to: 3, label: "Tournaments conducted each season", suffix: "" },
+  { to: 5, label: "Coaches, mentors and trainers", suffix: "" },
 ];
 
 export const TOURNAMENTS = [
-  {
-    kind: "Zonal",
-    name: "U-16 Zonal Champions, 2024 & 2025",
-    note: "Back-to-back zonal titles for our Junior Development batch.",
-  },
+  { kind: "Annual", name: "Time Shield", note: "Conducted with associate clubs for SCA's cricketers." },
   {
     kind: "Selection",
-    name: "3 alumni to state U-19 trials",
-    note: "Players selected for state-level U-19 trials in the last two seasons.",
+    name: "U-12 Bhaskar Thakur Memorial Tournament",
+    note: "A selection route for the academy's youngest age group.",
   },
   {
-    kind: "District",
-    name: "District Champions, Kids category",
-    note: "Four years running (2022–2025) in the U-10 district league.",
+    kind: "Invitational",
+    name: "Oriental Shield",
+    note: "Organised with Oriental Insurance Company and Recreational Club.",
   },
 ];
 
 export const TESTIMONIALS = [
   {
-    name: "Meera Rane",
-    text: "My son joined the Foundation batch at seven, hesitant and unsure. Two years on, he's opening the batting for his school team. The coaches notice everything.",
+    name: "Sankalp Nikam",
+    text: "One of the best academies to start a journey with and to carry forward. Works on the basics and skills so beautifully.",
   },
   {
-    name: "Rohan Thakkar",
-    text: "The video analysis sessions changed my bowling action completely. I went from getting hit around to picking up wickets consistently within one season.",
+    name: "Lyla Mehata",
+    text: "Wonderful place for cricket training. My 8 year old son loves this place. Highly recommend it.",
   },
   {
-    name: "Sanjay Kamble",
-    text: "Professional, structured, and genuinely invested in the kids — not just another coaching class. Worth every rupee of the fee.",
+    name: "Kaushik Nadar",
+    text: "This academy focuses on every aspect of cricket be it fitness, technique, skills or mental strength.",
   },
   {
-    name: "Ayesha Sheikh",
-    text: "What stood out was how personal it felt despite the numbers. Every coach knew exactly where my daughter needed work.",
+    name: "Jamsheed Maheta",
+    text: "My son started at SCA last season and enjoyed himself. The staff and coaching is very good and professional.",
   },
   {
-    name: "Vivaan Joshi",
-    text: "Joined for the Advanced batch before my school trials and made the state U-19 shortlist the same year. The match-intensity drills made the real thing feel slower.",
+    name: "Shivraj Maske",
+    text: "You will get enough time in nets. More time is given on improvement of technique. You will see improved results in a few weeks.",
   },
   {
-    name: "Farhan Qureshi",
-    text: "The fitness program alone was worth joining for — I stopped breaking down mid-season for the first time in three years.",
+    name: "Sahil Babaria",
+    text: "Very good cricket academy. They not only teach us cricket but fitness is also on the next level.",
   },
   {
-    name: "Kavita Iyer",
-    text: "Structured, honest feedback every fortnight instead of vague praise. My son actually knows what to work on now.",
+    name: "Manish Pandey",
+    text: "It was a great experience working with such an academy. I have improved my bowling action a lot.",
   },
 ];
 
 export type GalleryItem = {
   id: string;
+  src: string;
   alt: string;
   ratio: string;
   span: number;
-  category: "Training" | "Matches" | "Events";
-  tone: "forest" | "ink" | "accent";
 };
 
 export const GALLERY: GalleryItem[] = [
-  { id: "g1", alt: "Batting practice in the nets", ratio: "4 / 5", span: 2, category: "Training", tone: "forest" },
-  { id: "g2", alt: "Squad photo before a fixture", ratio: "4 / 3", span: 1, category: "Matches", tone: "ink" },
-  { id: "g3", alt: "Trophy presentation after a tournament", ratio: "4 / 3", span: 1, category: "Events", tone: "accent" },
-  { id: "g4", alt: "Coach correcting a young batter's stance", ratio: "4 / 3", span: 1, category: "Training", tone: "forest" },
-  { id: "g5", alt: "Fast bowler mid-delivery", ratio: "4 / 5", span: 2, category: "Training", tone: "ink" },
-  { id: "g6", alt: "Fielding drill on the outfield", ratio: "4 / 3", span: 1, category: "Training", tone: "forest" },
-  { id: "g7", alt: "Match day at the home ground", ratio: "4 / 3", span: 1, category: "Matches", tone: "accent" },
-  { id: "g8", alt: "Team huddle before play", ratio: "4 / 3", span: 1, category: "Matches", tone: "ink" },
-  { id: "g9", alt: "Strength and conditioning session", ratio: "4 / 3", span: 1, category: "Training", tone: "forest" },
-  { id: "g10", alt: "Awards evening group photo", ratio: "4 / 3", span: 1, category: "Events", tone: "accent" },
-  { id: "g11", alt: "Net session with the bowling machine", ratio: "4 / 3", span: 1, category: "Training", tone: "ink" },
-  { id: "g12", alt: "Young cricketers at the summer camp", ratio: "4 / 3", span: 1, category: "Events", tone: "forest" },
-  { id: "g13", alt: "Presentation after the zonal final", ratio: "4 / 3", span: 1, category: "Matches", tone: "accent" },
+  { id: "g1", src: "/images/gallery-1.jpg", alt: "Batsman in the nets at Cross Maidan", ratio: "4 / 5", span: 2 },
+  { id: "g2", src: "/images/gallery-2.jpg", alt: "SCA squad before a match", ratio: "4 / 3", span: 1 },
+  { id: "g3", src: "/images/gallery-3.jpg", alt: "Player with trophy and certificate", ratio: "4 / 3", span: 1 },
+  { id: "g4", src: "/images/gallery-4.jpg", alt: "Coach correcting a young batsman", ratio: "4 / 3", span: 1 },
+  { id: "g5", src: "/images/gallery-5.jpg", alt: "Training session", ratio: "4 / 5", span: 2 },
+  { id: "g6", src: "/images/gallery-6.jpg", alt: "Bowling practice", ratio: "4 / 3", span: 1 },
+  { id: "g7", src: "/images/gallery-7.jpg", alt: "Fielding drill", ratio: "4 / 3", span: 1 },
+  { id: "g8", src: "/images/gallery-8.jpg", alt: "Match day at the maidan", ratio: "4 / 3", span: 1 },
+  { id: "g9", src: "/images/gallery-9.jpg", alt: "Batting drill", ratio: "4 / 3", span: 1 },
+  { id: "g10", src: "/images/gallery-10.jpg", alt: "Team huddle", ratio: "4 / 3", span: 1 },
+  { id: "g11", src: "/images/gallery-11.jpg", alt: "Net session", ratio: "4 / 3", span: 1 },
+  { id: "g12", src: "/images/gallery-12.jpg", alt: "Young cricketers at SCA", ratio: "4 / 3", span: 1 },
+  { id: "g13", src: "/images/gallery-13.jpg", alt: "Presentation after a tournament", ratio: "4 / 3", span: 1 },
 ];
 
 export const PROGRAM_OPTIONS = PROGRAMS.map((p) => `${p.title} (${p.tag})`);
@@ -221,9 +223,9 @@ export const FOOTER_COLS = [
   {
     title: "Academy",
     links: [
-      { label: "About us", href: "/#about" },
-      { label: "Our philosophy", href: "/#pillars" },
-      { label: "Coaches", href: "/#coaches" },
+      { label: "About SCA", href: "/#about" },
+      { label: "The 4 pillars", href: "/#pillars" },
+      { label: "Our team", href: "/#coaches" },
       { label: "Achievements", href: "/#achievements" },
     ],
   },

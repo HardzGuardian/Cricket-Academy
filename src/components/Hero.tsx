@@ -1,14 +1,17 @@
+import Image from "next/image";
 import { HERO_FACTS, SOCIALS } from "@/lib/data";
-import PhotoPlaceholder from "./PhotoPlaceholder";
 
 export default function Hero() {
   return (
     <section className="relative min-h-[min(88vh,820px)] grid items-end overflow-hidden bg-forest">
       <div className="absolute inset-0">
-        <PhotoPlaceholder
-          caption="Photo — fast bowler mid-delivery, home ground"
-          tone="forest"
-          className="absolute inset-0 animate-zoom-out"
+        <Image
+          src="/images/hero.jpg"
+          alt="Batting practice at Cross Maidan"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[50%_35%] animate-zoom-out"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/62 via-ink/28 to-ink/90" />
       </div>
@@ -21,20 +24,19 @@ export default function Hero() {
 
         <h1 className="mt-5 text-cream font-display font-extrabold leading-[0.92] tracking-[-0.035em] text-[clamp(46px,9vw,112px)] max-w-[15ch] text-balance">
           <span className="block overflow-hidden">
-            <span className="block animate-rise [animation-delay:0.1s]">Built on the</span>
+            <span className="block animate-rise [animation-delay:0.1s]">Best Cricket</span>
           </span>
           <span className="block overflow-hidden">
-            <span className="block animate-rise [animation-delay:0.22s]">boundary,</span>
+            <span className="block animate-rise [animation-delay:0.22s]">Academy in</span>
           </span>
           <span className="block overflow-hidden">
-            <span className="block animate-rise text-accent [animation-delay:0.34s]">forged in the nets.</span>
+            <span className="block animate-rise text-accent [animation-delay:0.34s]">Mumbai</span>
           </span>
         </h1>
 
         <p className="mt-6 max-w-[54ch] text-cream/82 text-[clamp(15px,1.35vw,19px)] leading-relaxed animate-rise [animation-delay:0.5s]">
-          Structured, age-wise cricket coaching for players aged 6 to 22 — combining
-          classical technique, modern conditioning and real match exposure under
-          BCCI-certified coaches.
+          A group of cricket enthusiasts with keen and passionate intent to produce
+          proficient cricketers for representing on national and international level.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3 animate-rise [animation-delay:0.62s]">

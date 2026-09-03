@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FOOTER_COLS, SITE, SOCIALS } from "@/lib/data";
 
@@ -7,15 +8,13 @@ export default function Footer() {
       <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] pt-[clamp(48px,7vw,96px)] pb-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(30px,4vw,60px)]">
           <div>
-            <div className="flex items-center gap-2.5">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="12" cy="12" r="9.5" stroke="#E2571F" strokeWidth="1.6" />
-                <path d="M4 13.5C7 11 17 11 20 13.5" stroke="#E2571F" strokeWidth="1.4" />
-              </svg>
-              <span className="font-display font-extrabold text-lg tracking-tight">
-                {SITE.shortName}
-              </span>
-            </div>
+            <Image
+              src={SITE.logo}
+              alt={SITE.name}
+              width={160}
+              height={40}
+              className="h-10 w-auto brightness-0 invert opacity-90"
+            />
             <p className="mt-5 text-[15px] leading-relaxed text-cream/62 max-w-[34ch]">
               Structured cricket coaching in Mumbai — building technique, fitness and
               match temperament since {SITE.founded}.

@@ -1,21 +1,17 @@
+import Image from "next/image";
 import { PILLARS } from "@/lib/data";
-import PhotoPlaceholder from "./PhotoPlaceholder";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
-
-const TONES = ["forest", "ink", "accent", "forest"] as const;
 
 export default function Pillars() {
   return (
     <section id="pillars" className="scroll-mt-20 max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
-      <SectionHeading index="03" label="Our coaching philosophy" />
+      <SectionHeading index="03" label="The 4 pillars of SCA" />
 
       <div className="grid gap-[clamp(20px,3vw,40px)]">
         {PILLARS.map((p, i) => (
           <Reveal key={p.num}>
-            <article
-              className={`grid md:grid-cols-2 gap-[clamp(22px,3vw,54px)] items-center pb-[clamp(20px,3vw,40px)] border-b border-ink/12`}
-            >
+            <article className="grid md:grid-cols-2 gap-[clamp(22px,3vw,54px)] items-center pb-[clamp(20px,3vw,40px)] border-b border-ink/12">
               <div className={i % 2 === 0 ? "md:order-1" : "md:order-2"}>
                 <div className="font-display font-extrabold text-[clamp(52px,7vw,96px)] leading-[0.85] tracking-tight text-ink/12">
                   {p.num}
@@ -27,11 +23,13 @@ export default function Pillars() {
                   {p.body}
                 </p>
               </div>
-              <PhotoPlaceholder
-                caption={`Photo — ${p.title.toLowerCase()}`}
-                tone={TONES[i]}
-                className={`rounded-[20px] aspect-[16/11] ${i % 2 === 0 ? "md:order-2" : "md:order-1"}`}
-              />
+              <div
+                className={`relative rounded-[20px] overflow-hidden aspect-[16/11] bg-cream-2 ${
+                  i % 2 === 0 ? "md:order-2" : "md:order-1"
+                }`}
+              >
+                <Image src={p.img} alt={p.title} fill className="object-cover" />
+              </div>
             </article>
           </Reveal>
         ))}

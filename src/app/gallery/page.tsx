@@ -5,8 +5,8 @@ import Header from "@/components/Header";
 import { GALLERY } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Gallery — Coverdrive Cricket Academy",
-  description: "Photos from training sessions, matches and events at Coverdrive Cricket Academy.",
+  title: "Gallery — Sunil Cricket Academy",
+  description: "Photos from training sessions, matches and events at Sunil Cricket Academy, Cross Maidan.",
 };
 
 export default function GalleryPage() {
@@ -23,8 +23,8 @@ export default function GalleryPage() {
               Nets, matches, medals.
             </h1>
             <p className="mt-6.5 max-w-[52ch] text-[clamp(15px,1.3vw,19px)] leading-relaxed text-cream/72 animate-rise [animation-delay:0.2s]">
-              Photographs from training sessions, tournaments and camps at our home
-              ground. Click any frame to enlarge.
+              Photographs from training sessions, tournaments and camps at Cross
+              Maidan. Click any frame to enlarge.
             </p>
           </div>
         </section>

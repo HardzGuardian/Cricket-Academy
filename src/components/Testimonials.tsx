@@ -44,7 +44,7 @@ export default function Testimonials() {
           <div>
             <div className="font-display font-semibold text-xl tracking-tight">{q.name}</div>
             <div className="mt-1.5 text-[10.5px] tracking-[0.2em] uppercase text-cream/50">
-              Academy parent / student
+              SCA student · Google review
             </div>
           </div>
 

@@ -11,7 +11,7 @@ export default function GallerySection() {
 
       <div className="flex flex-wrap gap-5 items-end justify-between mb-[clamp(26px,4vw,44px)]">
         <Reveal as="h2" className="font-display font-extrabold text-[clamp(32px,4.4vw,58px)] leading-[1.02] tracking-[-0.035em] max-w-[22ch]">
-          Seasons on the ground.
+          Seasons at the maidan.
         </Reveal>
         <Link
           href="/gallery"
