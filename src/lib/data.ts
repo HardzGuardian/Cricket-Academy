@@ -7,9 +7,10 @@ export const SITE = {
   area: "Churchgate, Mumbai",
   address:
     "Plot No. 9, Cross Maidan, M.G. Road, behind F.S. Market, Churchgate, Mumbai, Maharashtra 400020",
-  phone: "+91 97684 85976",
-  phoneHref: "tel:+919768485976",
-  email: "sunilcricketacademy.94@gmail.com",
+  phone: "+91 89286 57399",
+  phoneHref: "tel:+918928657399",
+  // Publicly displayed contact email (footer, contact card, mailto: links).
+  email: "sagarsalunkhe98@gmail.com",
   mapsHref:
     "https://maps.google.com/maps?q=Plot%20No%20-%209%20%2C%20Corss%20maidan%2C%20M.G.%20Road%2CBehind%20F.S%20Market%2C%20Churchgate%2C%20Mumbai%2C%20Maharashtra%20400020",
   // Keyless Google Maps embed (works on a static deploy, no API key/billing).
@@ -17,6 +18,14 @@ export const SITE = {
     "https://maps.google.com/maps?q=Cross%20Maidan%2C%20M.G.%20Road%2C%20Churchgate%2C%20Mumbai%2C%20Maharashtra%20400020&z=16&output=embed",
   logo: "/images/logo.png",
 };
+
+// Where the enquiry form's API route (src/app/api/enquiry/route.ts) actually
+// delivers submissions -- kept separate from SITE.email (the publicly
+// displayed contact address) because Resend's free tier, without a verified
+// domain, can only deliver to the address its account was signed up with.
+// Once a domain is verified at resend.com/domains, this can point at
+// SITE.email (or any address on that domain) instead.
+export const ENQUIRY_RECIPIENT_EMAIL = "godreturn98@gmail.com";
 
 export const NAV = [
   { label: "About", href: "/#about" },

@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { PROGRAM_OPTIONS, SITE } from "@/lib/data";
+import { useCopyToClipboard } from "@/lib/useCopyToClipboard";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import Select from "./ui/Select";
@@ -13,11 +14,6 @@ const FIELDS: { key: FieldKey; label: string; type: string; placeholder: string 
   { key: "name", label: "Your name (required)", type: "text", placeholder: "Player or parent name" },
   { key: "email", label: "Your email (required)", type: "email", placeholder: "you@example.com" },
   { key: "mobile", label: "Mobile (required)", type: "tel", placeholder: "10-digit mobile number" },
-];
-
-const CONTACTS = [
-  { label: "Phone", value: SITE.phone, href: SITE.phoneHref },
-  { label: "Email", value: SITE.email, href: `mailto:${SITE.email}` },
 ];
 
 function validate(key: FieldKey, val: string) {
@@ -34,6 +30,12 @@ export default function Admission() {
   const [program, setProgram] = useState(PROGRAM_OPTIONS[0]);
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  // Honeypot: real visitors never see this field, so anything filled in
+  // here means a bot submitted the form. Silently rejected server-side.
+  const [company, setCompany] = useState("");
+  const { copy, copied } = useCopyToClipboard();
 
   const onChange = (key: FieldKey, v: string) => {
     setValues((s) => ({ ...s, [key]: v }));
@@ -44,7 +46,7 @@ export default function Admission() {
     setErrors((s) => ({ ...s, [key]: validate(key, v) }));
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const next: Partial<Record<FieldKey, string>> = {};
     (["name", "email", "mobile"] as FieldKey[]).forEach((k) => {
@@ -55,7 +57,30 @@ export default function Admission() {
       setErrors(next);
       return;
     }
-    setSent(true);
+
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, program, message, company }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        if (data?.errors) {
+          setErrors(data.errors);
+        } else {
+          setSubmitError(data?.error || "Something went wrong. Please try again.");
+        }
+        return;
+      }
+      setSent(true);
+    } catch {
+      setSubmitError("Couldn't reach the server. Check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const reset = () => {
@@ -63,6 +88,7 @@ export default function Admission() {
     setValues({ name: "", email: "", mobile: "" });
     setMessage("");
     setErrors({});
+    setSubmitError(null);
   };
 
   const firstName = values.name.trim().split(" ")[0] || "there";
@@ -82,20 +108,32 @@ export default function Admission() {
           </p>
 
           <div className="mt-8 grid gap-0.5">
-            {CONTACTS.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                className="flex items-baseline justify-between gap-4.5 py-4.5 border-t border-ink/14 text-ink hover:text-accent"
-              >
-                <span className="text-[10.5px] tracking-[0.2em] uppercase text-muted">
-                  {c.label}
-                </span>
-                <span className="font-display font-semibold text-[clamp(16px,1.6vw,21px)] tracking-tight text-right">
-                  {c.value}
-                </span>
-              </a>
-            ))}
+            {/* Phone: a real call link — tapping it dials on mobile. */}
+            <a
+              href={SITE.phoneHref}
+              className="flex items-baseline justify-between gap-4.5 py-4.5 border-t border-ink/14 text-ink hover:text-accent"
+            >
+              <span className="text-[10.5px] tracking-[0.2em] uppercase text-muted">
+                Phone
+              </span>
+              <span className="font-display font-semibold text-[clamp(16px,1.6vw,21px)] tracking-tight text-right">
+                {SITE.phone}
+              </span>
+            </a>
+            {/* Email: copies to clipboard instead of forcing open a mail
+                client that may not be configured on this device. */}
+            <button
+              type="button"
+              onClick={() => copy(SITE.email)}
+              className="flex items-baseline justify-between gap-4.5 py-4.5 border-t border-ink/14 text-ink hover:text-accent w-full text-left cursor-pointer"
+            >
+              <span className="text-[10.5px] tracking-[0.2em] uppercase text-muted">
+                {copied ? "Copied!" : "Email · tap to copy"}
+              </span>
+              <span className="font-display font-semibold text-[clamp(16px,1.6vw,21px)] tracking-tight text-right">
+                {SITE.email}
+              </span>
+            </button>
           </div>
 
           <div className="mt-6.5 rounded-[20px] overflow-hidden border border-ink/14 bg-cream-2">
@@ -132,7 +170,7 @@ export default function Admission() {
               </h3>
               <p className="text-[15px] leading-relaxed text-cream/70 max-w-[40ch]">
                 A coach will call you on {values.mobile || "your number"} to fix a trial
-                slot. This is a front-end demo, so nothing was actually sent.
+                slot.
               </p>
               <motion.button
                 type="button"
@@ -146,7 +184,7 @@ export default function Admission() {
               </motion.button>
             </div>
           ) : (
-            <form onSubmit={submit} noValidate className="grid gap-4">
+            <form onSubmit={submit} noValidate className="relative grid gap-4">
               <div>
                 <div className="text-[10.5px] tracking-[0.2em] uppercase text-accent font-bold">
                   Enquiry form
@@ -155,6 +193,25 @@ export default function Admission() {
                   Book a free trial session
                 </h3>
               </div>
+
+              {/* Honeypot — visually hidden (not type="hidden", which some
+                  bots specifically skip), never focusable by keyboard or
+                  screen readers, real visitors never encounter it. */}
+              <label
+                aria-hidden="true"
+                className="absolute w-px h-px overflow-hidden opacity-0 pointer-events-none -z-10"
+                style={{ clip: "rect(0,0,0,0)" }}
+              >
+                Company
+                <input
+                  type="text"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                />
+              </label>
 
               {FIELDS.map((f) => (
                 <label key={f.key} className="grid gap-2">
@@ -206,15 +263,21 @@ export default function Admission() {
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.015 }}
-                whileTap={{ scale: 0.97 }}
+                disabled={submitting}
+                whileHover={submitting ? undefined : { scale: 1.015 }}
+                whileTap={submitting ? undefined : { scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 420, damping: 26 }}
-                className="mt-1.5 w-full bg-accent text-cream border-0 py-4.5 rounded-full cursor-pointer text-xs font-bold tracking-[0.16em] uppercase transition-colors hover:bg-cream hover:text-ink"
+                className="mt-1.5 w-full bg-accent text-cream border-0 py-4.5 rounded-full cursor-pointer text-xs font-bold tracking-[0.16em] uppercase transition-colors hover:bg-cream hover:text-ink disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Send enquiry
+                {submitting ? "Sending…" : "Send enquiry"}
               </motion.button>
+              {submitError && (
+                <p className="text-xs leading-relaxed text-accent-soft animate-rise-sm m-0">
+                  {submitError}
+                </p>
+              )}
               <p className="text-xs leading-relaxed text-cream/45 m-0">
-                Front-end only — no data leaves this page.
+                We&apos;ll only use these details to get in touch about your trial.
               </p>
             </form>
           )}

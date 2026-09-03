@@ -5,8 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { SOCIAL_ICONS } from "@/components/icons/SocialIcons";
 import { FOOTER_COLS, SITE, SOCIALS } from "@/lib/data";
+import { useCopyToClipboard } from "@/lib/useCopyToClipboard";
 
 export default function Footer() {
+  const { copy, copied } = useCopyToClipboard();
+
   return (
     <footer className="bg-ink text-cream border-t border-cream/12 mt-auto">
       <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] pt-[clamp(48px,7vw,96px)] pb-8">
@@ -73,9 +76,13 @@ export default function Footer() {
             <a href={SITE.phoneHref} className="mt-4 block font-display font-semibold text-xl tracking-tight hover:text-accent">
               {SITE.phone}
             </a>
-            <a href={`mailto:${SITE.email}`} className="mt-1.5 block text-sm text-cream/70 hover:text-accent">
-              {SITE.email}
-            </a>
+            <button
+              type="button"
+              onClick={() => copy(SITE.email)}
+              className="mt-1.5 block text-sm text-cream/70 hover:text-accent cursor-pointer text-left"
+            >
+              {copied ? "Copied!" : SITE.email}
+            </button>
           </div>
         </div>
 
