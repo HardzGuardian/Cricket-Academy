@@ -210,9 +210,9 @@ export type GalleryItem = {
 
 export const GALLERY: GalleryItem[] = [
   { id: "g1", src: "/images/gallery-1.jpg", alt: "Batsman in the nets at Cross Maidan", ratio: "4 / 5", span: 2 },
-  { id: "g2", src: "/images/about-2.jpg", alt: "SCA squad before a match", ratio: "4 / 3", span: 1 },
-  { id: "g3", src: "/images/facilities-ground.jpg", alt: "Player with trophy and certificate", ratio: "4 / 3", span: 1 },
-  { id: "g4", src: "/images/about-1.jpg", alt: "Coach correcting a young batsman", ratio: "4 / 3", span: 1 },
+  { id: "g2", src: "/images/about-2.jpg", alt: "Player with a trophy, medal and SCA Certificate of Honour", ratio: "4 / 3", span: 1 },
+  { id: "g3", src: "/images/facilities-ground.jpg", alt: "Bowler mid-delivery with batsman, umpire and fielders", ratio: "4 / 3", span: 1 },
+  { id: "g4", src: "/images/about-1.jpg", alt: "SCA junior squad seated with certificates, medals and a trophy", ratio: "4 / 3", span: 1 },
   { id: "g5", src: "/images/gallery-5.jpg", alt: "Training session", ratio: "4 / 5", span: 2 },
   { id: "g6", src: "/images/gallery-6.jpg", alt: "Bowling practice", ratio: "4 / 3", span: 1 },
   { id: "g7", src: "/images/gallery-7.jpg", alt: "Fielding drill", ratio: "4 / 3", span: 1 },
