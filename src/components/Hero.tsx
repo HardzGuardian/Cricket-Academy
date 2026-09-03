@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { SOCIAL_ICONS } from "@/components/icons/SocialIcons";
 import { MotionLink } from "@/components/MotionLink";
-import { HERO_FACTS, SOCIALS } from "@/lib/data";
+import { HERO_BADGE, HERO_FACTS, SOCIALS } from "@/lib/data";
 
 export default function Hero() {
   return (
@@ -24,7 +24,7 @@ export default function Hero() {
       <div className="relative w-full max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] pt-[clamp(90px,14vh,160px)] pb-[clamp(26px,4vw,46px)]">
         <div className="inline-flex items-center gap-2.5 py-1.5 pl-2 pr-3.5 border border-cream/28 rounded-full text-cream text-[10.5px] tracking-[0.2em] uppercase animate-rise-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_0_4px_rgba(226,87,31,0.25)]" />
-          Admissions open · 2026 season
+          {HERO_BADGE}
         </div>
 
         <h1 className="mt-5 text-cream font-display font-extrabold leading-[0.92] tracking-[-0.035em] text-[clamp(46px,9vw,112px)] max-w-[15ch] text-balance">

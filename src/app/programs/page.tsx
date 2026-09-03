@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import { MotionLink } from "@/components/MotionLink";
 import Reveal from "@/components/Reveal";
 import Tag from "@/components/ui/Tag";
-import { PILLARS, PROGRAMS } from "@/lib/data";
+import { PILLARS, PROGRAMS, PROGRAMS_INTRO } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Training Programs — Sunil Cricket Academy",
@@ -26,9 +26,7 @@ export default function ProgramsPage() {
               Programs &amp; the orthodox module
             </h1>
             <p className="mt-6.5 max-w-[58ch] text-[clamp(15px,1.3vw,19px)] leading-relaxed text-cream/72 animate-rise [animation-delay:0.2s]">
-              SCA has been indulged in making students aware of the old style what
-              nowadays is seen to be vanishing. SCA uses the Orthodox Training Module to
-              train young cricketers.
+              {PROGRAMS_INTRO}
             </p>
           </div>
         </section>

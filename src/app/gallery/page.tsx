@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import GalleryGrid from "@/components/GalleryGrid";
 import Header from "@/components/Header";
-import { GALLERY } from "@/lib/data";
+import { GALLERY, GALLERY_INTRO } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Gallery — Sunil Cricket Academy",
@@ -23,8 +23,7 @@ export default function GalleryPage() {
               Nets, matches, medals.
             </h1>
             <p className="mt-6.5 max-w-[52ch] text-[clamp(15px,1.3vw,19px)] leading-relaxed text-cream/72 animate-rise [animation-delay:0.2s]">
-              Photographs from training sessions, tournaments and camps at Cross
-              Maidan. Click any frame to enlarge.
+              {GALLERY_INTRO}
             </p>
           </div>
         </section>

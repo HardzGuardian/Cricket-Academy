@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { COACHES } from "@/lib/data";
+import { COACHES, COACHES_INTRO } from "@/lib/data";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
@@ -14,10 +14,7 @@ export default function Coaches() {
             Coaches and fitness trainers.
           </Reveal>
           <p className="text-[clamp(15px,1.25vw,17px)] leading-relaxed text-cream/72 max-w-[48ch]">
-            SCA has the amalgamation of coaches and fitness trainers who unlatch
-            concealed talents in the academy to train them to be zestful and spirited
-            individuals. Coaching here is more of an amicable approach to teaching in a
-            better and innovative way.
+            {COACHES_INTRO}
           </p>
         </div>
 
