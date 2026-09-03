@@ -4,10 +4,11 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import type { GalleryItem } from "@/lib/data";
+import { spring } from "@/lib/motion";
 
 const btnTap = { scale: 0.9 };
 const btnHover = { scale: 1.08 };
-const btnSpring = { type: "spring", stiffness: 420, damping: 24 } as const;
+const btnSpring = spring(24);
 
 export default function GalleryGrid({
   items,

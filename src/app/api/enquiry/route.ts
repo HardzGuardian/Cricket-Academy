@@ -1,5 +1,20 @@
 import { Resend } from "resend";
 import { ENQUIRY_RECIPIENT_EMAIL } from "@/lib/data";
+import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
+
+// Same-origin only: this endpoint exists for this site's own form, not as
+// a public API, so a request whose Origin doesn't match the site's own
+// Host is rejected outright. Cuts out both malicious cross-site scripts
+// and (accidentally) crawlers that replay POST bodies they found.
+function isSameOrigin(request: Request): boolean {
+  const origin = request.headers.get("origin");
+  if (!origin) return false;
+  try {
+    return new URL(origin).host === request.headers.get("host");
+  } catch {
+    return false;
+  }
+}
 
 // Lazily constructed so a missing key fails per-request (500 with a clear
 // message) instead of crashing the route module at build/import time.
@@ -34,6 +49,22 @@ function isValidMobile(v: string) {
 }
 
 export async function POST(request: Request) {
+  if (!isSameOrigin(request)) {
+    return Response.json({ error: "Invalid request." }, { status: 403 });
+  }
+
+  const ip = getClientIp(request);
+  const { ok, retryAfterSeconds } = checkRateLimit(`enquiry:${ip}`, {
+    limit: 5,
+    windowMs: 10 * 60 * 1000, // 5 submissions per 10 minutes per IP
+  });
+  if (!ok) {
+    return Response.json(
+      { error: "Too many enquiries from this connection. Please try again shortly." },
+      { status: 429, headers: { "Retry-After": String(retryAfterSeconds) } }
+    );
+  }
+
   let body: Body;
   try {
     body = await request.json();

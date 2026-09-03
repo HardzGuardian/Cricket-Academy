@@ -1,6 +1,7 @@
 import { MotionLink } from "./MotionLink";
 import Tag from "./ui/Tag";
 import { PROGRAMS } from "@/lib/data";
+import { SPRING } from "@/lib/motion";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
@@ -58,7 +59,7 @@ export default function ProgramsSection() {
             href="#admission"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
-            transition={{ type: "spring", stiffness: 420, damping: 26 }}
+            transition={SPRING}
             className="bg-accent text-cream py-3.5 px-5.5 rounded-full text-[11.5px] font-bold tracking-[0.14em] uppercase hover:bg-cream hover:text-ink transition-colors"
           >
             Ask a coach
@@ -68,7 +69,7 @@ export default function ProgramsSection() {
         <MotionLink
           href="/programs"
           whileHover={{ x: 3 }}
-          transition={{ type: "spring", stiffness: 420, damping: 26 }}
+          transition={SPRING}
           className="mt-6 inline-flex items-center gap-2.5 text-xs font-bold tracking-[0.16em] uppercase text-cream/80 hover:text-accent"
         >
           See full program details <span>→</span>

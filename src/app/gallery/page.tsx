@@ -4,16 +4,22 @@ import GalleryGrid from "@/components/GalleryGrid";
 import Header from "@/components/Header";
 import { GALLERY, GALLERY_INTRO } from "@/lib/data";
 
+const title = "Gallery — Sunil Cricket Academy";
+const description = "Photos from training sessions, matches and events at Sunil Cricket Academy, Cross Maidan.";
+
 export const metadata: Metadata = {
-  title: "Gallery — Sunil Cricket Academy",
-  description: "Photos from training sessions, matches and events at Sunil Cricket Academy, Cross Maidan.",
+  title,
+  description,
+  alternates: { canonical: "/gallery" },
+  openGraph: { title, description, url: "/gallery" },
+  twitter: { title, description },
 };
 
 export default function GalleryPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <section className="bg-forest text-cream">
           <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] pt-[clamp(56px,9vw,120px)] pb-[clamp(40px,6vw,80px)]">
             <div className="text-[10.5px] tracking-[0.24em] uppercase text-accent font-bold animate-rise-sm">

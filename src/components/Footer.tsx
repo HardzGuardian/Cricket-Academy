@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SOCIAL_ICONS } from "@/components/icons/SocialIcons";
 import { FOOTER_COLS, SITE, SOCIALS } from "@/lib/data";
+import { spring } from "@/lib/motion";
 import { useCopyToClipboard } from "@/lib/useCopyToClipboard";
 
 export default function Footer() {
@@ -43,7 +44,7 @@ export default function Footer() {
                     aria-label={s.label}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.92 }}
-                    transition={{ type: "spring", stiffness: 420, damping: 24 }}
+                    transition={spring(24)}
                     className="w-10 h-10 rounded-full border border-cream/24 grid place-items-center hover:bg-accent hover:border-accent transition-colors"
                   >
                     <Icon className="w-4.5 h-4.5" />

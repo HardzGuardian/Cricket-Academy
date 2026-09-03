@@ -33,6 +33,24 @@ body {
   color: var(--color-cream);
 }
 
+/* Keyboard-focus ring, applied globally rather than per-component. Several
+   inputs/buttons pair this with their own `outline-none` + a color-shift
+   focus state (e.g. focus:border-accent) -- that color shift alone isn't
+   a strong enough indicator on its own (WCAG 2.4.7), so this ring is the
+   actual visible focus indicator; the color shift is a bonus, not a
+   replacement. :focus-visible (not :focus) so it only shows for keyboard
+   navigation, not every mouse click. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[role="combobox"]:focus-visible,
+[role="option"]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 /* SCROLL SUBSYSTEM — overview of the header/scrollbar/scroll-lock contract.
    Four participants, one dependency direction:
      1. src/components/Header.tsx — publisher. A ResizeObserver measures the
@@ -213,4 +231,36 @@ body > .os-scrollbar-vertical {
 }
 .reveal.in-view {
   animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* prefers-reduced-motion, for the plain-CSS animations above.
+   MotionConfig's reducedMotion="user" (in layout.tsx) already covers every
+   `motion.*` React component, but the hero's line reveals, the ticker
+   marquee, the hero background's slow zoom, and the scroll-triggered
+   .reveal class are all plain CSS animations -- MotionConfig has no
+   reach into them. This is the equivalent coverage for that half of the
+   site's animation, collapsing everything to an instant, static end
+   state rather than just speeding it up (marquee especially: a
+   never-ending scroll has no meaningful "faster" version for someone
+   who's asked for less motion, only "on" or "off"). */
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-rise-sm,
+  .animate-fade-in,
+  .animate-zoom-out,
+  .animate-marquee,
+  .animate-grow-x,
+  .animate-pop-in,
+  .animate-lightbox-backdrop,
+  .animate-lightbox-image,
+  .reveal.in-view {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

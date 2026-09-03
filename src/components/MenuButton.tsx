@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
+import { spring } from "@/lib/motion";
 
-const spring = { type: "spring", stiffness: 420, damping: 28 } as const;
+const menuSpring = spring(28);
 
 export default function MenuButton({
   open,
@@ -19,7 +20,7 @@ export default function MenuButton({
       onClick={onClick}
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.92 }}
-      transition={spring}
+      transition={menuSpring}
       className="lg:hidden w-[46px] h-[46px] rounded-2xl border border-ink/12 bg-white/70 backdrop-blur-sm shadow-[0_1px_2px_rgba(15,18,22,0.06)] grid place-items-center"
     >
       <span className="sr-only">Menu</span>
@@ -28,7 +29,7 @@ export default function MenuButton({
           className="absolute left-0 w-4.5 h-[1.6px] bg-ink rounded-full"
           initial={false}
           animate={{ top: open ? 6 : 0, rotate: open ? 45 : 0 }}
-          transition={spring}
+          transition={menuSpring}
         />
         <motion.span
           className="absolute left-0 top-1.5 w-4.5 h-[1.6px] bg-ink rounded-full"
@@ -40,7 +41,7 @@ export default function MenuButton({
           className="absolute left-0 w-4.5 h-[1.6px] bg-ink rounded-full"
           initial={false}
           animate={{ top: open ? 6 : 12, rotate: open ? -45 : 0 }}
-          transition={spring}
+          transition={menuSpring}
         />
       </span>
     </motion.button>

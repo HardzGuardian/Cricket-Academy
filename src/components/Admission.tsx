@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { PROGRAM_OPTIONS, SITE } from "@/lib/data";
+import { SPRING } from "@/lib/motion";
 import { useCopyToClipboard } from "@/lib/useCopyToClipboard";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
@@ -177,7 +178,7 @@ export default function Admission() {
                 onClick={reset}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.96 }}
-                transition={{ type: "spring", stiffness: 420, damping: 26 }}
+                transition={SPRING}
                 className="justify-self-start self-start bg-transparent border border-cream/30 text-cream py-3.5 px-5.5 rounded-full cursor-pointer text-[11.5px] font-bold tracking-[0.14em] uppercase hover:bg-cream/12"
               >
                 Send another
@@ -213,28 +214,33 @@ export default function Admission() {
                 />
               </label>
 
-              {FIELDS.map((f) => (
-                <label key={f.key} className="grid gap-2">
-                  <span className="text-[10.5px] tracking-[0.16em] uppercase text-cream/60">
-                    {f.label}
-                  </span>
-                  <input
-                    type={f.type}
-                    value={values[f.key]}
-                    onChange={(e) => onChange(f.key, e.target.value)}
-                    onBlur={(e) => onBlur(f.key, e.target.value)}
-                    placeholder={f.placeholder}
-                    className={`w-full bg-cream/6 border rounded-xl py-3.5 px-4 text-[15px] text-cream outline-none transition-colors focus:border-accent focus:bg-cream/10 ${
-                      errors[f.key] ? "border-accent-soft" : "border-cream/20"
-                    }`}
-                  />
-                  {errors[f.key] && (
-                    <span className="text-xs text-accent-soft animate-rise-sm">
-                      {errors[f.key]}
+              {FIELDS.map((f) => {
+                const errorId = `${f.key}-error`;
+                return (
+                  <label key={f.key} className="grid gap-2">
+                    <span className="text-[10.5px] tracking-[0.16em] uppercase text-cream/60">
+                      {f.label}
                     </span>
-                  )}
-                </label>
-              ))}
+                    <input
+                      type={f.type}
+                      value={values[f.key]}
+                      onChange={(e) => onChange(f.key, e.target.value)}
+                      onBlur={(e) => onBlur(f.key, e.target.value)}
+                      placeholder={f.placeholder}
+                      aria-invalid={!!errors[f.key]}
+                      aria-describedby={errors[f.key] ? errorId : undefined}
+                      className={`w-full bg-cream/6 border rounded-xl py-3.5 px-4 text-[15px] text-cream outline-none transition-colors focus:border-accent focus:bg-cream/10 ${
+                        errors[f.key] ? "border-accent-soft" : "border-cream/20"
+                      }`}
+                    />
+                    {errors[f.key] && (
+                      <span id={errorId} role="alert" className="text-xs text-accent-soft animate-rise-sm">
+                        {errors[f.key]}
+                      </span>
+                    )}
+                  </label>
+                );
+              })}
 
               <div className="grid gap-2">
                 <span className="text-[10.5px] tracking-[0.16em] uppercase text-cream/60">
@@ -266,13 +272,13 @@ export default function Admission() {
                 disabled={submitting}
                 whileHover={submitting ? undefined : { scale: 1.015 }}
                 whileTap={submitting ? undefined : { scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 420, damping: 26 }}
+                transition={SPRING}
                 className="mt-1.5 w-full bg-accent text-cream border-0 py-4.5 rounded-full cursor-pointer text-xs font-bold tracking-[0.16em] uppercase transition-colors hover:bg-cream hover:text-ink disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {submitting ? "Sending…" : "Send enquiry"}
               </motion.button>
               {submitError && (
-                <p className="text-xs leading-relaxed text-accent-soft animate-rise-sm m-0">
+                <p role="alert" className="text-xs leading-relaxed text-accent-soft animate-rise-sm m-0">
                   {submitError}
                 </p>
               )}

@@ -7,9 +7,9 @@ import { useEffect, useRef, useState } from "react";
 import MenuButton from "./MenuButton";
 import { MotionLink } from "./MotionLink";
 import { NAV, SITE } from "@/lib/data";
+import { SPRING } from "@/lib/motion";
 
 const tap = { scale: 0.96 };
-const springy = { type: "spring", stiffness: 420, damping: 26 } as const;
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -83,7 +83,7 @@ export default function Header() {
             href="/#admission"
             whileHover={{ scale: 1.04 }}
             whileTap={tap}
-            transition={springy}
+            transition={SPRING}
             className="bg-accent text-cream px-5 py-2.5 rounded-full text-[11.5px] font-bold tracking-[0.14em] uppercase hover:bg-ink transition-colors"
           >
             Book a trial
@@ -116,7 +116,7 @@ export default function Header() {
               href="/#admission"
               onClick={() => setOpen(false)}
               whileTap={tap}
-              transition={springy}
+              transition={SPRING}
               className="mt-3.5 bg-accent text-cream py-4 rounded-full text-center text-xs font-bold tracking-[0.16em] uppercase"
             >
               Book a trial

@@ -6,6 +6,7 @@
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { spring } from "@/lib/motion";
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
@@ -15,7 +16,7 @@ function ChevronIcon({ open }: { open: boolean }) {
       viewBox="0 0 24 24"
       fill="none"
       animate={{ rotate: open ? 180 : 0 }}
-      transition={{ type: "spring", stiffness: 420, damping: 30 }}
+      transition={spring(30)}
     >
       <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </motion.svg>

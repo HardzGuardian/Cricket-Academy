@@ -5,18 +5,25 @@ import Header from "@/components/Header";
 import { MotionLink } from "@/components/MotionLink";
 import Reveal from "@/components/Reveal";
 import Tag from "@/components/ui/Tag";
+import { SPRING } from "@/lib/motion";
 import { PILLARS, PROGRAMS, PROGRAMS_INTRO } from "@/lib/data";
 
+const title = "Training Programs — Sunil Cricket Academy";
+const description = "Age-wise cricket training batches and the orthodox training module at Sunil Cricket Academy.";
+
 export const metadata: Metadata = {
-  title: "Training Programs — Sunil Cricket Academy",
-  description: "Age-wise cricket training batches and the orthodox training module at Sunil Cricket Academy.",
+  title,
+  description,
+  alternates: { canonical: "/programs" },
+  openGraph: { title, description, url: "/programs" },
+  twitter: { title, description },
 };
 
 export default function ProgramsPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <section className="bg-ink text-cream">
           <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] pt-[clamp(56px,9vw,120px)] pb-[clamp(40px,6vw,80px)]">
             <div className="text-[10.5px] tracking-[0.24em] uppercase text-accent font-bold animate-rise-sm">
@@ -92,7 +99,7 @@ export default function ProgramsPage() {
               href="/#admission"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 420, damping: 26 }}
+              transition={SPRING}
               className="bg-accent text-cream py-4.5 px-6.5 rounded-full text-xs font-bold tracking-[0.16em] uppercase hover:bg-cream hover:text-ink transition-colors"
             >
               Book a free trial →

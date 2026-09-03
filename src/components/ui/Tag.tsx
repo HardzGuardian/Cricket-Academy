@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
+import { spring } from "@/lib/motion";
 
 const TONES = {
   light: "bg-ink/[0.035] border-ink/12 text-ink-soft",
@@ -29,7 +30,7 @@ export default function Tag({
       viewport={{ once: true, margin: "-40px" }}
       transition={{
         opacity: { duration: 0.35, delay: index * 0.06 },
-        y: { type: "spring", stiffness: 420, damping: 30, delay: index * 0.06 },
+        y: { ...spring(30), delay: index * 0.06 },
       }}
       className={`inline-flex items-center gap-2 text-[10.5px] tracking-[0.12em] uppercase font-medium py-2 pl-2.5 pr-3.5 border rounded-full ${TONES[tone]}`}
     >

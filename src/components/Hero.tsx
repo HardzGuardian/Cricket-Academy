@@ -6,6 +6,7 @@ import { SOCIAL_ICONS } from "@/components/icons/SocialIcons";
 import PulseDot from "@/components/ui/PulseDot";
 import { MotionLink } from "@/components/MotionLink";
 import { HERO_BADGE, HERO_FACTS, SOCIALS } from "@/lib/data";
+import { spring, SPRING } from "@/lib/motion";
 
 export default function Hero() {
   return (
@@ -50,7 +51,7 @@ export default function Hero() {
             href="#admission"
             whileHover={{ scale: 1.035 }}
             whileTap={{ scale: 0.96 }}
-            transition={{ type: "spring", stiffness: 420, damping: 26 }}
+            transition={SPRING}
             className="inline-flex items-center gap-3 bg-accent text-cream px-6.5 py-4 rounded-full text-xs font-bold tracking-[0.16em] uppercase hover:bg-cream hover:text-ink transition-colors"
           >
             Book a free trial <span className="text-base">→</span>
@@ -59,7 +60,7 @@ export default function Hero() {
             href="/programs"
             whileHover={{ scale: 1.035 }}
             whileTap={{ scale: 0.96 }}
-            transition={{ type: "spring", stiffness: 420, damping: 26 }}
+            transition={SPRING}
             className="inline-flex items-center gap-3 border border-cream/34 text-cream px-6.5 py-4 rounded-full text-xs font-bold tracking-[0.16em] uppercase hover:bg-cream/12 transition-colors"
           >
             Training programs
@@ -93,7 +94,7 @@ export default function Hero() {
               aria-label={s.label}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.92 }}
-              transition={{ type: "spring", stiffness: 420, damping: 24 }}
+              transition={spring(24)}
               className="w-10 h-10 rounded-full border border-cream/30 text-cream grid place-items-center hover:bg-accent hover:border-accent transition-colors"
             >
               <Icon className="w-4.5 h-4.5" />
