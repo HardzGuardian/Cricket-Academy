@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Manrope, Instrument_Serif } from "next/font/google";
 import { MotionConfig } from "motion/react";
 import "./globals.css";
+import HashTargetSync from "@/components/HashTargetSync";
 import Scrollbars from "@/components/Scrollbars";
 import { SITE } from "@/lib/data";
 
@@ -105,6 +106,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <MotionConfig reducedMotion="user">
           <Scrollbars />
+          <HashTargetSync />
           {children}
         </MotionConfig>
       </body>

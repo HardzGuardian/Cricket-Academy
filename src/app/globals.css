@@ -95,18 +95,27 @@ textarea:focus-visible,
    heading. Scrolling to the same section naturally (scrolling the page
    past the previous section) doesn't have this problem: the padding is
    what creates the breathing room between sections, and looks correct
-   there. :target only matches the former case, so tightening padding-top
-   there doesn't touch the normal scroll-through spacing.
+   there.
+   Two selectors cover the jumped-to case: :target (real browser
+   navigation -- typed URL, hard refresh, back/forward) and .is-target, a
+   plain class toggled by HashTargetSync.tsx for the case :target can't
+   see -- Next.js's <Link> intercepting a same-page nav click and updating
+   the URL via history.pushState, which fires neither a real navigation
+   nor even a `hashchange` event (confirmed by testing: this is the
+   common case, a header nav click while already on the page, so it's not
+   an edge case to skip). See that component for the full explanation.
    Two DOM shapes exist: most sections carry their padding directly on
    the <section class="scroll-target">; four (Achievements, Coaches,
    ProgramsSection, Testimonials) put it on an inner .section-inner div
    instead because the section itself carries a full-bleed background.
    Both rules only override padding-top -- padding-bottom (the gap before
    the *next* section) is untouched either way. */
-.scroll-target:target {
+.scroll-target:target,
+.scroll-target.is-target {
   padding-top: clamp(20px, 4vw, 32px);
 }
-.scroll-target:target > .section-inner {
+.scroll-target:target > .section-inner,
+.scroll-target.is-target > .section-inner {
   padding-top: clamp(20px, 4vw, 32px);
 }
 
