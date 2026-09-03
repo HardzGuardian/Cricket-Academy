@@ -4,6 +4,10 @@ import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 export default function About() {
+  // Server Component — computed at build/deploy time, so this figure
+  // refreshes on the next redeploy, not on New Year's Day. Deliberate:
+  // see Phase 1 CONTEXT.md D-13/D-14 (client-side computation and a fixed
+  // "since 2016" string were both rejected).
   const years = new Date().getFullYear() - SITE.founded;
 
   return (
