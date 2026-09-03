@@ -5,7 +5,7 @@ import SectionHeading from "./SectionHeading";
 
 export default function Pillars() {
   return (
-    <section id="pillars" className="scroll-mt-20 max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
+    <section id="pillars" className="scroll-target max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
       <SectionHeading index="03" label="The 4 pillars of SCA" />
 
       <div className="grid gap-[clamp(20px,3vw,40px)]">

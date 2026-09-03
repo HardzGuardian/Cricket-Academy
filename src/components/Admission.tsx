@@ -68,7 +68,7 @@ export default function Admission() {
   const firstName = values.name.trim().split(" ")[0] || "there";
 
   return (
-    <section id="admission" className="scroll-mt-20 max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
+    <section id="admission" className="scroll-target max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
       <SectionHeading index="09" label="Contact & admission" />
 
       <div className="grid lg:grid-cols-2 gap-[clamp(28px,4vw,64px)] items-start">

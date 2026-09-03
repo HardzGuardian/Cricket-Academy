@@ -7,7 +7,7 @@ export default function About() {
   const years = new Date().getFullYear() - SITE.founded;
 
   return (
-    <section id="about" className="scroll-mt-20 max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
+    <section id="about" className="scroll-target max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
       <SectionHeading index="01" label="About" />
 
       <div className="grid lg:grid-cols-2 gap-[clamp(30px,5vw,70px)] items-start">

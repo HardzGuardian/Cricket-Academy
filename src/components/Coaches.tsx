@@ -5,7 +5,7 @@ import SectionHeading from "./SectionHeading";
 
 export default function Coaches() {
   return (
-    <section id="coaches" className="scroll-mt-20 bg-forest text-cream">
+    <section id="coaches" className="scroll-target bg-forest text-cream">
       <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
         <SectionHeading index="04" label="Our team" dark />
 

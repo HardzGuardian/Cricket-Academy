@@ -5,7 +5,7 @@ import SectionHeading from "./SectionHeading";
 
 export default function Facilities() {
   return (
-    <section id="facilities" className="scroll-mt-20 max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
+    <section id="facilities" className="scroll-target max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
       <SectionHeading index="05" label="Facilities" />
 
       <div className="grid lg:grid-cols-2 gap-[clamp(28px,4vw,60px)] items-start">

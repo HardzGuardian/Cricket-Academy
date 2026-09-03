@@ -31,7 +31,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="scroll-mt-20 bg-ink text-cream">
+    <section id="testimonials" className="scroll-target bg-ink text-cream">
       <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
         <SectionHeading index="08" label="What our students say" dark />
 

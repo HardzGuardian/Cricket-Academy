@@ -33,6 +33,14 @@ body {
   color: var(--color-cream);
 }
 
+/* Anchor targets land flush under the sticky header. Uses the measured
+   --header-h (published by Header.tsx) so a section never lands a few
+   pixels low and leaves a sliver of the previous section on screen.
+   The fallback covers the first paint before the measurement lands. */
+.scroll-target {
+  scroll-margin-top: var(--header-h, 68px);
+}
+
 /* Radix scroll lock (react-remove-scroll, used by Select) sets
    `body { overflow: hidden }` while a dropdown is open. That turns <body>
    into a scroll container, so the sticky header starts sticking to the

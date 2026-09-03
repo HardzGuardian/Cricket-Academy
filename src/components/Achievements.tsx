@@ -44,7 +44,7 @@ export default function Achievements() {
   const p = done ? 1 : progress;
 
   return (
-    <section id="achievements" ref={ref} className="scroll-mt-20 bg-accent text-ink">
+    <section id="achievements" ref={ref} className="scroll-target bg-accent text-ink">
       <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,130px)]">
         <SectionHeading index="06" label="Achievements" />
 
