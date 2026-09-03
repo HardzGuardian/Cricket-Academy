@@ -10,7 +10,7 @@ export default function Facilities() {
 
       <div className="grid lg:grid-cols-2 gap-[clamp(28px,4vw,60px)] items-start">
         <Reveal className="relative rounded-3xl overflow-hidden aspect-[4/5]">
-          <Image src="/images/facilities-ground.jpg" alt="Cross Maidan ground" fill className="object-cover" />
+          <Image src="/images/facilities-ground.jpg" alt="Bowler mid-delivery with batsman, umpire and fielders on the Cross Maidan ground" fill className="object-cover" />
           <div className="absolute inset-x-4 bottom-4 p-5 rounded-2xl bg-ink/72 backdrop-blur-sm text-cream">
             <div className="text-[10px] tracking-[0.2em] uppercase text-cream/60">Home ground</div>
             <div className="mt-1.5 font-display font-semibold text-xl tracking-tight">
