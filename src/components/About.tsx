@@ -53,11 +53,17 @@ export default function About() {
             <div className="relative rounded-[20px] overflow-hidden aspect-square bg-cream-2">
               <Image src="/images/about-2.jpg" alt="SCA squad" fill className="object-cover" />
             </div>
-            <div className="rounded-[20px] bg-cream border border-ink/14 p-5.5 flex flex-col justify-between aspect-square">
-              <div className="font-display font-extrabold text-[clamp(40px,5vw,60px)] leading-[0.9] tracking-tight">
+            <div className="relative rounded-[20px] bg-forest text-cream p-5.5 flex flex-col justify-end aspect-square overflow-hidden">
+              <div className="absolute top-5.5 left-5.5 right-5.5 flex items-center gap-2.5">
+                <span className="text-[10px] tracking-[0.2em] uppercase text-cream/45 whitespace-nowrap">
+                  Since {SITE.founded}
+                </span>
+                <span className="flex-1 h-px bg-cream/15" />
+              </div>
+              <div className="font-display font-extrabold text-[clamp(56px,7.5vw,88px)] leading-[0.8] tracking-[-0.045em]">
                 {years}
               </div>
-              <div className="text-[11px] tracking-[0.18em] uppercase text-muted leading-relaxed">
+              <div className="mt-2.5 text-[11px] tracking-[0.18em] uppercase text-cream/55 leading-relaxed">
                 Years coaching
                 <br />
                 at Cross Maidan
