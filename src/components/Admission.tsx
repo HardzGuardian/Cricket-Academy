@@ -5,6 +5,7 @@ import { useState } from "react";
 import { PROGRAM_OPTIONS, SITE } from "@/lib/data";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import Select from "./ui/Select";
 
 type FieldKey = "name" | "email" | "mobile";
 
@@ -169,22 +170,17 @@ export default function Admission() {
                 </label>
               ))}
 
-              <label className="grid gap-2">
+              <div className="grid gap-2">
                 <span className="text-[10.5px] tracking-[0.16em] uppercase text-cream/60">
                   Interested in
                 </span>
-                <select
+                <Select
                   value={program}
-                  onChange={(e) => setProgram(e.target.value)}
-                  className="w-full bg-cream/6 border border-cream/20 rounded-xl py-3.5 px-4 text-[15px] text-cream outline-none"
-                >
-                  {PROGRAM_OPTIONS.map((o) => (
-                    <option key={o} value={o} className="text-ink">
-                      {o}
-                    </option>
-                  ))}
-                </select>
-              </label>
+                  onValueChange={setProgram}
+                  options={PROGRAM_OPTIONS}
+                  label="Interested in"
+                />
+              </div>
 
               <label className="grid gap-2">
                 <span className="text-[10.5px] tracking-[0.16em] uppercase text-cream/60">

@@ -18,6 +18,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Reserve the scrollbar's width permanently so opening a dropdown/dialog
+     that locks body scroll never shifts the page horizontally. */
+  scrollbar-gutter: stable;
 }
 
 body {
