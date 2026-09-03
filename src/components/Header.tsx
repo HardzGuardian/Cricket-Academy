@@ -58,7 +58,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-ink/10 px-[clamp(18px,4vw,56px)] py-3.5 pb-6 grid gap-0.5 animate-rise-sm">
+        <div className="lg:hidden absolute top-full inset-x-0 bg-cream/95 backdrop-blur-md border-t border-ink/10 px-[clamp(18px,4vw,56px)] py-3.5 pb-6 grid gap-0.5 animate-rise-sm shadow-[0_16px_30px_-10px_rgba(15,18,22,0.18)]">
           {NAV.map((n) => (
             <Link
               key={n.label}
