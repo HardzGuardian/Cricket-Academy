@@ -2,6 +2,8 @@
 
 import { motion } from "motion/react";
 
+const spring = { type: "spring", stiffness: 420, damping: 28 } as const;
+
 export default function MenuButton({
   open,
   onClick,
@@ -17,29 +19,30 @@ export default function MenuButton({
       onClick={onClick}
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.92 }}
-      transition={{ type: "spring", stiffness: 420, damping: 26 }}
-      className="lg:hidden relative w-[46px] h-[46px] rounded-2xl border border-ink/18 bg-cream grid place-items-center overflow-hidden"
+      transition={spring}
+      className="lg:hidden w-[46px] h-[46px] rounded-2xl border border-ink/12 bg-white/70 backdrop-blur-sm shadow-[0_1px_2px_rgba(15,18,22,0.06)] grid place-items-center"
     >
       <span className="sr-only">Menu</span>
-      <motion.span
-        className="absolute w-4.5 h-[1.6px] bg-ink rounded-full"
-        initial={false}
-        animate={open ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }}
-        transition={{ type: "spring", stiffness: 420, damping: 30 }}
-      />
-      <motion.span
-        className="absolute w-4.5 h-[1.6px] bg-ink rounded-full"
-        initial={false}
-        animate={open ? { opacity: 0, x: 8 } : { opacity: 1, x: 0 }}
-        transition={{ duration: 0.15 }}
-      />
-      <motion.span
-        className="absolute w-4.5 h-[1.6px] bg-ink rounded-full"
-        initial={false}
-        animate={open ? { rotate: -45, y: 0, width: "18px" } : { rotate: 0, y: 6, width: "12.6px" }}
-        style={{ alignSelf: open ? "center" : "flex-start" }}
-        transition={{ type: "spring", stiffness: 420, damping: 30 }}
-      />
+      <span className="relative block w-4.5 h-3.5">
+        <motion.span
+          className="absolute left-0 w-4.5 h-[1.6px] bg-ink rounded-full"
+          initial={false}
+          animate={{ top: open ? 6 : 0, rotate: open ? 45 : 0 }}
+          transition={spring}
+        />
+        <motion.span
+          className="absolute left-0 top-1.5 w-4.5 h-[1.6px] bg-ink rounded-full"
+          initial={false}
+          animate={{ opacity: open ? 0 : 1 }}
+          transition={{ duration: 0.12 }}
+        />
+        <motion.span
+          className="absolute left-0 w-4.5 h-[1.6px] bg-ink rounded-full"
+          initial={false}
+          animate={{ top: open ? 6 : 12, rotate: open ? -45 : 0 }}
+          transition={spring}
+        />
+      </span>
     </motion.button>
   );
 }

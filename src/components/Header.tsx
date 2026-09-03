@@ -64,7 +64,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="lg:hidden absolute top-full inset-x-0 bg-cream/95 backdrop-blur-md border-t border-ink/10 px-[clamp(18px,4vw,56px)] py-3.5 pb-6 grid gap-0.5 shadow-[0_16px_30px_-10px_rgba(15,18,22,0.18)]"
+            className="lg:hidden absolute top-full inset-x-0 bg-cream border-t border-ink/10 px-[clamp(18px,4vw,56px)] py-3.5 pb-6 grid gap-0.5 shadow-[0_16px_30px_-10px_rgba(15,18,22,0.25)]"
           >
             {NAV.map((n) => (
               <Link
