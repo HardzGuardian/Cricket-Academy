@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "motion/react";
 import { useState } from "react";
 import { PROGRAM_OPTIONS, SITE } from "@/lib/data";
 import Reveal from "./Reveal";
@@ -123,13 +124,16 @@ export default function Admission() {
                 A coach will call you on {values.mobile || "your number"} to fix a trial
                 slot. This is a front-end demo, so nothing was actually sent.
               </p>
-              <button
+              <motion.button
                 type="button"
                 onClick={reset}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ type: "spring", stiffness: 420, damping: 26 }}
                 className="justify-self-start self-start bg-transparent border border-cream/30 text-cream py-3.5 px-5.5 rounded-full cursor-pointer text-[11.5px] font-bold tracking-[0.14em] uppercase hover:bg-cream/12"
               >
                 Send another
-              </button>
+              </motion.button>
             </div>
           ) : (
             <form onSubmit={submit} noValidate className="grid gap-4">
@@ -195,12 +199,15 @@ export default function Admission() {
                 />
               </label>
 
-              <button
+              <motion.button
                 type="submit"
+                whileHover={{ scale: 1.015 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: "spring", stiffness: 420, damping: 26 }}
                 className="mt-1.5 w-full bg-accent text-cream border-0 py-4.5 rounded-full cursor-pointer text-xs font-bold tracking-[0.16em] uppercase transition-colors hover:bg-cream hover:text-ink"
               >
                 Send enquiry
-              </button>
+              </motion.button>
               <p className="text-xs leading-relaxed text-cream/45 m-0">
                 Front-end only — no data leaves this page.
               </p>

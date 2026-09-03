@@ -1,9 +1,15 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import MenuButton from "./MenuButton";
+import { MotionLink } from "./MotionLink";
 import { NAV, SITE } from "@/lib/data";
+
+const tap = { scale: 0.96 };
+const springy = { type: "spring", stiffness: 420, damping: 26 } as const;
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -37,47 +43,51 @@ export default function Header() {
               {n.label}
             </Link>
           ))}
-          <Link
+          <MotionLink
             href="/#admission"
+            whileHover={{ scale: 1.04 }}
+            whileTap={tap}
+            transition={springy}
             className="bg-accent text-cream px-5 py-2.5 rounded-full text-[11.5px] font-bold tracking-[0.14em] uppercase hover:bg-ink transition-colors"
           >
             Book a trial
-          </Link>
+          </MotionLink>
         </nav>
 
-        <button
-          type="button"
-          aria-label="Menu"
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden w-[46px] h-[46px] border border-ink/18 rounded-2xl grid place-items-center gap-1.5 p-3"
-        >
-          <span className="block w-full h-[1.6px] bg-ink" />
-          <span className="block w-full h-[1.6px] bg-ink" />
-          <span className="block w-[70%] h-[1.6px] bg-ink self-start" />
-        </button>
+        <MenuButton open={open} onClick={() => setOpen((v) => !v)} />
       </div>
 
-      {open && (
-        <div className="lg:hidden absolute top-full inset-x-0 bg-cream/95 backdrop-blur-md border-t border-ink/10 px-[clamp(18px,4vw,56px)] py-3.5 pb-6 grid gap-0.5 animate-rise-sm shadow-[0_16px_30px_-10px_rgba(15,18,22,0.18)]">
-          {NAV.map((n) => (
-            <Link
-              key={n.label}
-              href={n.href}
-              onClick={() => setOpen(false)}
-              className="font-display font-semibold text-[26px] tracking-tight py-2.5 border-b border-ink/8"
-            >
-              {n.label}
-            </Link>
-          ))}
-          <Link
-            href="/#admission"
-            onClick={() => setOpen(false)}
-            className="mt-3.5 bg-accent text-cream py-4 rounded-full text-center text-xs font-bold tracking-[0.16em] uppercase"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
+            className="lg:hidden absolute top-full inset-x-0 bg-cream/95 backdrop-blur-md border-t border-ink/10 px-[clamp(18px,4vw,56px)] py-3.5 pb-6 grid gap-0.5 shadow-[0_16px_30px_-10px_rgba(15,18,22,0.18)]"
           >
-            Book a trial
-          </Link>
-        </div>
-      )}
+            {NAV.map((n) => (
+              <Link
+                key={n.label}
+                href={n.href}
+                onClick={() => setOpen(false)}
+                className="font-display font-semibold text-[26px] tracking-tight py-2.5 border-b border-ink/8"
+              >
+                {n.label}
+              </Link>
+            ))}
+            <MotionLink
+              href="/#admission"
+              onClick={() => setOpen(false)}
+              whileTap={tap}
+              transition={springy}
+              className="mt-3.5 bg-accent text-cream py-4 rounded-full text-center text-xs font-bold tracking-[0.16em] uppercase"
+            >
+              Book a trial
+            </MotionLink>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

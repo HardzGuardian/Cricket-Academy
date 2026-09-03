@@ -1,8 +1,13 @@
 "use client";
 
+import { motion } from "motion/react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import type { GalleryItem } from "@/lib/data";
+
+const btnTap = { scale: 0.9 };
+const btnHover = { scale: 1.08 };
+const btnSpring = { type: "spring", stiffness: 420, damping: 24 } as const;
 
 export default function GalleryGrid({
   items,
@@ -81,34 +86,43 @@ export default function GalleryGrid({
             onClick={(e) => e.stopPropagation()}
             className="fixed inset-x-0 bottom-6.5 flex gap-3 items-center justify-center cursor-default"
           >
-            <button
+            <motion.button
               type="button"
               aria-label="Previous image"
               onClick={() => step(-1)}
-              className="w-13 h-13 rounded-full border border-cream/30 bg-ink/60 text-cream grid place-items-center hover:bg-accent hover:border-accent"
+              whileHover={btnHover}
+              whileTap={btnTap}
+              transition={btnSpring}
+              className="w-13 h-13 rounded-full border border-cream/30 bg-ink/60 text-cream grid place-items-center hover:bg-accent hover:border-accent transition-colors"
             >
               ←
-            </button>
+            </motion.button>
             <span className="text-cream/70 text-xs tracking-[0.18em] uppercase min-w-[90px] text-center">
               {openIndex + 1} / {items.length}
             </span>
-            <button
+            <motion.button
               type="button"
               aria-label="Next image"
               onClick={() => step(1)}
-              className="w-13 h-13 rounded-full border border-cream/30 bg-ink/60 text-cream grid place-items-center hover:bg-accent hover:border-accent"
+              whileHover={btnHover}
+              whileTap={btnTap}
+              transition={btnSpring}
+              className="w-13 h-13 rounded-full border border-cream/30 bg-ink/60 text-cream grid place-items-center hover:bg-accent hover:border-accent transition-colors"
             >
               →
-            </button>
+            </motion.button>
           </div>
-          <button
+          <motion.button
             type="button"
             aria-label="Close"
             onClick={() => setOpenIndex(-1)}
-            className="fixed top-5.5 right-5.5 w-12 h-12 rounded-full border border-cream/30 bg-ink/60 text-cream grid place-items-center hover:bg-accent hover:border-accent"
+            whileHover={btnHover}
+            whileTap={btnTap}
+            transition={btnSpring}
+            className="fixed top-5.5 right-5.5 w-12 h-12 rounded-full border border-cream/30 bg-ink/60 text-cream grid place-items-center hover:bg-accent hover:border-accent transition-colors"
           >
             ✕
-          </button>
+          </motion.button>
         </div>
       )}
     </>

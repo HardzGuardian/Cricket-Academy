@@ -1,4 +1,9 @@
+"use client";
+
+import { motion } from "motion/react";
 import Image from "next/image";
+import { SOCIAL_ICONS } from "@/components/icons/SocialIcons";
+import { MotionLink } from "@/components/MotionLink";
 import { HERO_FACTS, SOCIALS } from "@/lib/data";
 
 export default function Hero() {
@@ -40,18 +45,24 @@ export default function Hero() {
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3 animate-rise [animation-delay:0.62s]">
-          <a
+          <MotionLink
             href="#admission"
+            whileHover={{ scale: 1.035 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ type: "spring", stiffness: 420, damping: 26 }}
             className="inline-flex items-center gap-3 bg-accent text-cream px-6.5 py-4 rounded-full text-xs font-bold tracking-[0.16em] uppercase hover:bg-cream hover:text-ink transition-colors"
           >
             Book a free trial <span className="text-base">→</span>
-          </a>
-          <a
+          </MotionLink>
+          <MotionLink
             href="/programs"
+            whileHover={{ scale: 1.035 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ type: "spring", stiffness: 420, damping: 26 }}
             className="inline-flex items-center gap-3 border border-cream/34 text-cream px-6.5 py-4 rounded-full text-xs font-bold tracking-[0.16em] uppercase hover:bg-cream/12 transition-colors"
           >
             Training programs
-          </a>
+          </MotionLink>
         </div>
 
         <div className="mt-[clamp(40px,7vw,84px)] pt-5.5 border-t border-cream/18 grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-5.5 animate-fade-in [animation-delay:0.9s]">
@@ -69,18 +80,25 @@ export default function Hero() {
       </div>
 
       <div className="absolute right-[clamp(18px,4vw,56px)] top-1/2 -translate-y-1/2 hidden sm:grid gap-3.5 animate-fade-in [animation-delay:1.1s]">
-        {SOCIALS.map((s) => (
-          <a
-            key={s.abbr}
-            href={s.href}
-            target="_blank"
-            rel="noopener"
-            title={s.label}
-            className="w-10 h-10 rounded-full border border-cream/30 text-cream grid place-items-center text-[11px] font-bold hover:bg-accent hover:border-accent transition-colors"
-          >
-            {s.abbr}
-          </a>
-        ))}
+        {SOCIALS.map((s) => {
+          const Icon = SOCIAL_ICONS[s.label];
+          return (
+            <motion.a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener"
+              title={s.label}
+              aria-label={s.label}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.92 }}
+              transition={{ type: "spring", stiffness: 420, damping: 24 }}
+              className="w-10 h-10 rounded-full border border-cream/30 text-cream grid place-items-center hover:bg-accent hover:border-accent transition-colors"
+            >
+              <Icon className="w-4.5 h-4.5" />
+            </motion.a>
+          );
+        })}
       </div>
     </section>
   );

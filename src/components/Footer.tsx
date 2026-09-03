@@ -1,5 +1,9 @@
+"use client";
+
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { SOCIAL_ICONS } from "@/components/icons/SocialIcons";
 import { FOOTER_COLS, SITE, SOCIALS } from "@/lib/data";
 
 export default function Footer() {
@@ -20,18 +24,25 @@ export default function Footer() {
               match temperament since {SITE.founded}.
             </p>
             <div className="mt-5.5 flex gap-2">
-              {SOCIALS.map((s) => (
-                <a
-                  key={s.abbr}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener"
-                  title={s.label}
-                  className="w-10 h-10 rounded-full border border-cream/24 grid place-items-center text-[11px] font-bold hover:bg-accent hover:border-accent"
-                >
-                  {s.abbr}
-                </a>
-              ))}
+              {SOCIALS.map((s) => {
+                const Icon = SOCIAL_ICONS[s.label];
+                return (
+                  <motion.a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener"
+                    title={s.label}
+                    aria-label={s.label}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.92 }}
+                    transition={{ type: "spring", stiffness: 420, damping: 24 }}
+                    className="w-10 h-10 rounded-full border border-cream/24 grid place-items-center hover:bg-accent hover:border-accent transition-colors"
+                  >
+                    <Icon className="w-4.5 h-4.5" />
+                  </motion.a>
+                );
+              })}
             </div>
           </div>
 

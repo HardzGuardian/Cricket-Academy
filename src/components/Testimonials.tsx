@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { TESTIMONIALS } from "@/lib/data";
 import SectionHeading from "./SectionHeading";
@@ -49,22 +50,28 @@ export default function Testimonials() {
           </div>
 
           <div className="flex items-center gap-3">
-            <button
+            <motion.button
               type="button"
               onClick={() => go((i - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)}
               aria-label="Previous"
-              className="w-12.5 h-12.5 rounded-full border border-cream/28 text-cream text-lg hover:bg-accent hover:border-accent"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 420, damping: 24 }}
+              className="w-12.5 h-12.5 rounded-full border border-cream/28 text-cream text-lg hover:bg-accent hover:border-accent transition-colors"
             >
               ←
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               type="button"
               onClick={() => go((i + 1) % TESTIMONIALS.length)}
               aria-label="Next"
-              className="w-12.5 h-12.5 rounded-full border border-cream/28 text-cream text-lg hover:bg-accent hover:border-accent"
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 420, damping: 24 }}
+              className="w-12.5 h-12.5 rounded-full border border-cream/28 text-cream text-lg hover:bg-accent hover:border-accent transition-colors"
             >
               →
-            </button>
+            </motion.button>
           </div>
         </div>
 

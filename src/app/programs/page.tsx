@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { MotionLink } from "@/components/MotionLink";
 import Reveal from "@/components/Reveal";
 import { PILLARS, PROGRAMS } from "@/lib/data";
 
@@ -92,12 +92,15 @@ export default function ProgramsPage() {
             <h3 className="font-display font-extrabold text-[clamp(24px,3vw,38px)] leading-tight tracking-tight max-w-[24ch]">
               Come see a session before you decide.
             </h3>
-            <Link
+            <MotionLink
               href="/#admission"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 420, damping: 26 }}
               className="bg-accent text-cream py-4.5 px-6.5 rounded-full text-xs font-bold tracking-[0.16em] uppercase hover:bg-cream hover:text-ink transition-colors"
             >
               Book a free trial →
-            </Link>
+            </MotionLink>
           </div>
         </section>
       </main>
