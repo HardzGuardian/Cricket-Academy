@@ -50,6 +50,10 @@ export const TICKER = [
   "Interactive sessions",
 ];
 
+// Derived, not restated — the hero badge and the ticker's first line must
+// never drift apart, so the badge reads directly off TICKER[0].
+export const HERO_BADGE = TICKER[0];
+
 export const PROGRAMS = [
   {
     num: "01",
@@ -219,6 +223,20 @@ export const GALLERY: GalleryItem[] = [
   { id: "g12", src: "/images/gallery-12.jpg", alt: "Young cricketers at SCA", ratio: "4 / 3", span: 1 },
   { id: "g13", src: "/images/gallery-13.jpg", alt: "Presentation after a tournament", ratio: "4 / 3", span: 1 },
 ];
+
+// Plain prose lives here. Interpolated/marked-up prose — specifically About's
+// founder paragraph, which embeds SITE.founded, SITE.founderName, <strong>
+// emphasis and HTML entities — stays in its component, because flattening it
+// to a string would lose that formatting and preserving it would require
+// inventing a templating layer.
+export const COACHES_INTRO =
+  "SCA has the amalgamation of coaches and fitness trainers who unlatch concealed talents in the academy to train them to be zestful and spirited individuals. Coaching here is more of an amicable approach to teaching in a better and innovative way.";
+
+export const PROGRAMS_INTRO =
+  "SCA has been indulged in making students aware of the old style what nowadays is seen to be vanishing. SCA uses the Orthodox Training Module to train young cricketers.";
+
+export const GALLERY_INTRO =
+  "Photographs from training sessions, tournaments and camps at Cross Maidan. Click any frame to enlarge.";
 
 export const PROGRAM_OPTIONS = PROGRAMS.map((p) => `${p.title} (${p.tag})`);
 
