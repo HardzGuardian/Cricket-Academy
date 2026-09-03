@@ -45,7 +45,7 @@ export default function Achievements() {
 
   return (
     <section id="achievements" ref={ref} className="scroll-target bg-accent text-ink">
-      <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,130px)]">
+      <div className="section-inner max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,130px)]">
         <SectionHeading index="06" label="Achievements" />
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-7 pb-[clamp(36px,5vw,64px)]">

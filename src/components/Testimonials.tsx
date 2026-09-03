@@ -33,7 +33,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="scroll-target bg-ink text-cream">
-      <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
+      <div className="section-inner max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
         <SectionHeading index="08" label="What our students say" dark />
 
         <blockquote className="m-0">

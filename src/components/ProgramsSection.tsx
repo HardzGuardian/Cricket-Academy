@@ -8,7 +8,7 @@ import SectionHeading from "./SectionHeading";
 export default function ProgramsSection() {
   return (
     <section id="programs" className="scroll-target bg-ink text-cream">
-      <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
+      <div className="section-inner max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
         <SectionHeading index="02" label="Training programs" dark />
 
         <div className="grid md:grid-cols-2 gap-[clamp(26px,4vw,60px)] items-end mb-[clamp(34px,5vw,60px)]">

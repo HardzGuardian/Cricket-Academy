@@ -90,7 +90,7 @@ export default function Coaches() {
 
   return (
     <section id="coaches" className="scroll-target bg-forest text-cream">
-      <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
+      <div className="section-inner max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(64px,9vw,140px)]">
         <SectionHeading index="04" label="Our team" dark />
 
         <div className="mb-[clamp(34px,5vw,60px)]">

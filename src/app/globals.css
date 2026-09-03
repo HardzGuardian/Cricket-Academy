@@ -88,6 +88,28 @@ textarea:focus-visible,
   scroll-margin-top: var(--header-h, 68px);
 }
 
+/* A section jumped to directly (nav link, URL hash, browser back/forward
+   restoring a hash) lands with its full ~64-140px top padding still
+   applied, on top of scroll-margin-top already clearing the sticky
+   header -- the combined effect reads as a big dead gap above the
+   heading. Scrolling to the same section naturally (scrolling the page
+   past the previous section) doesn't have this problem: the padding is
+   what creates the breathing room between sections, and looks correct
+   there. :target only matches the former case, so tightening padding-top
+   there doesn't touch the normal scroll-through spacing.
+   Two DOM shapes exist: most sections carry their padding directly on
+   the <section class="scroll-target">; four (Achievements, Coaches,
+   ProgramsSection, Testimonials) put it on an inner .section-inner div
+   instead because the section itself carries a full-bleed background.
+   Both rules only override padding-top -- padding-bottom (the gap before
+   the *next* section) is untouched either way. */
+.scroll-target:target {
+  padding-top: clamp(20px, 4vw, 32px);
+}
+.scroll-target:target > .section-inner {
+  padding-top: clamp(20px, 4vw, 32px);
+}
+
 /* Radix scroll lock (react-remove-scroll, used by Select) sets
    `body { overflow: hidden }` while a dropdown is open. That turns <body>
    into a scroll container, so the sticky header starts sticking to the
