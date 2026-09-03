@@ -16,7 +16,7 @@ export default function NotFound() {
       <main>
         <section className="bg-ink text-cream min-h-[60vh] flex items-center">
           <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-[clamp(70px,11vw,140px)] w-full">
-            <div className="text-[10.5px] tracking-[0.24em] uppercase text-accent font-bold">
+            <div aria-hidden="true" className="text-[10.5px] tracking-[0.24em] uppercase text-accent font-bold">
               404
             </div>
             <h1 className="mt-4.5 font-display font-extrabold text-[clamp(40px,8vw,88px)] leading-[0.96] tracking-tight max-w-[16ch]">
@@ -34,7 +34,7 @@ export default function NotFound() {
               transition={{ type: "spring", stiffness: 420, damping: 26 }}
               className="mt-8 inline-flex bg-accent text-cream py-4.5 px-6.5 rounded-full text-xs font-bold tracking-[0.16em] uppercase hover:bg-cream hover:text-ink transition-colors"
             >
-              Back to home →
+              Back to home <span aria-hidden="true">→</span>
             </MotionLink>
           </div>
         </section>
