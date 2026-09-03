@@ -189,6 +189,19 @@ body > .os-scrollbar-vertical {
   animation: grow-x 0.6s ease both;
   transform-origin: left;
 }
+/* Lightbox open only -- deliberately faster than .animate-fade-in
+   (1s, tuned for the hero's slow reveal) and .animate-pop-in (0.4s,
+   tuned for the admission success panel). A modal should feel
+   instantaneous: reusing those slower shared animations here is what
+   made opening a gallery image feel laggy even though frames weren't
+   actually dropping -- it just took a full second to visibly react. */
+.animate-lightbox-backdrop {
+  animation: fade-in 0.15s ease-out both;
+}
+.animate-lightbox-image {
+  animation: pop-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 .animate-pop-in {
   animation: pop-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

@@ -74,11 +74,11 @@ export default function GalleryGrid({
       {active && (
         <div
           onClick={() => setOpenIndex(-1)}
-          className="fixed inset-0 z-100 bg-[rgba(10,12,15,0.94)] backdrop-blur-sm grid place-items-center p-[clamp(16px,4vw,56px)] animate-fade-in cursor-zoom-out"
+          className="fixed inset-0 z-100 bg-[rgba(10,12,15,0.94)] backdrop-blur-sm grid place-items-center p-[clamp(16px,4vw,56px)] animate-lightbox-backdrop cursor-zoom-out"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-3xl aspect-[4/3] rounded-xl overflow-hidden animate-pop-in cursor-default"
+            className="relative w-full max-w-3xl aspect-[4/3] rounded-xl overflow-hidden animate-lightbox-image cursor-default"
           >
             <Image src={active.src} alt={active.alt} fill sizes="(min-width: 768px) 768px, 100vw" className="object-contain" />
           </div>
