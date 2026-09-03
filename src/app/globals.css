@@ -33,6 +33,35 @@ body {
   color: var(--color-cream);
 }
 
+/* SCROLL SUBSYSTEM — overview of the header/scrollbar/scroll-lock contract.
+   Four participants, one dependency direction:
+     1. src/components/Header.tsx — publisher. A ResizeObserver measures the
+        header and writes the custom property --header-h onto
+        document.documentElement.
+     2. src/app/globals.css (this file) — consumer. Three rules read
+        --header-h or react-remove-scroll's runtime attribute:
+          - .scroll-target below uses --header-h for anchor scroll offset.
+          - html body[data-scroll-locked] below is the sticky-header fix for
+            Radix's scroll lock.
+          - body > .os-scrollbar-vertical below uses --header-h to start the
+            overlay bar under the header instead of across it.
+     3. src/components/Scrollbars.tsx — mounts OverlayScrollbars on <body> at
+        runtime; that mount point is what keeps native document scrolling
+        (and therefore position: sticky on the header) working.
+     4. src/components/ui/Select.tsx — imports @radix-ui/react-select, which
+        transitively pulls in react-remove-scroll; that package is what sets
+        body[data-scroll-locked] at runtime while a dropdown is open.
+   Header.tsx publishes --header-h; the three rules below consume it.
+   Scrollbars.tsx and (transitively) Select.tsx mutate <body> at runtime;
+   nothing reads back from CSS.
+   Upgrade hazard: body[data-scroll-locked] is an undocumented internal of
+   react-remove-scroll, and .os-scrollbar-vertical is an undocumented
+   internal of OverlayScrollbars — neither is a public API. Upgrading either
+   package, or @radix-ui/react-select (which pins react-remove-scroll
+   transitively), requires manually re-verifying that the sticky header
+   survives an open Select dropdown and that the overlay scrollbar still
+   starts below the header. */
+
 /* Anchor targets land flush under the sticky header. Uses the measured
    --header-h (published by Header.tsx) so a section never lands a few
    pixels low and leaves a sliver of the previous section on screen.
