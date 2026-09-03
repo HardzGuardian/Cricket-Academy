@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { MotionLink } from "@/components/MotionLink";
 import Reveal from "@/components/Reveal";
+import Tag from "@/components/ui/Tag";
 import { PILLARS, PROGRAMS } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -49,14 +50,11 @@ export default function ProgramsPage() {
                     <p className="text-[clamp(15px,1.2vw,17px)] leading-relaxed text-ink-soft max-w-[54ch]">
                       {p.body}
                     </p>
-                    <div className="mt-4.5 flex flex-wrap gap-1.5">
-                      {p.meta.map((m) => (
-                        <span
-                          key={m}
-                          className="text-[10.5px] tracking-[0.12em] uppercase py-1.5 px-3 border border-ink/18 rounded-full text-ink-soft"
-                        >
+                    <div className="mt-4.5 flex flex-wrap gap-2">
+                      {p.meta.map((m, i) => (
+                        <Tag key={m} index={i}>
                           {m}
-                        </span>
+                        </Tag>
                       ))}
                     </div>
                   </div>

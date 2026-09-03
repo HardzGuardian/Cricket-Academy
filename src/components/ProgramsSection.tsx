@@ -1,4 +1,5 @@
 import { MotionLink } from "./MotionLink";
+import Tag from "./ui/Tag";
 import { PROGRAMS } from "@/lib/data";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
@@ -37,14 +38,11 @@ export default function ProgramsSection() {
                 <p className="text-[14.5px] leading-relaxed text-cream/72 flex-1">
                   {p.body}
                 </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {p.meta.map((m) => (
-                    <span
-                      key={m}
-                      className="text-[10.5px] tracking-[0.12em] uppercase py-1.5 px-2.5 border border-cream/22 rounded-full text-cream/80"
-                    >
+                <div className="flex flex-wrap gap-2">
+                  {p.meta.map((m, i) => (
+                    <Tag key={m} tone="dark" index={i}>
                       {m}
-                    </span>
+                    </Tag>
                   ))}
                 </div>
               </article>
