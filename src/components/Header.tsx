@@ -19,6 +19,8 @@ export default function Header() {
   // start below it instead of running across it. Measured rather than
   // hardcoded, since the header grows when the logo text wraps on narrow
   // viewports.
+  // SCROLL SUBSYSTEM: this is the publisher — see the canonical contract
+  // in the SCROLL SUBSYSTEM block in src/app/globals.css.
   useEffect(() => {
     const el = headerRef.current;
     if (!el) return;

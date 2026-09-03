@@ -1,5 +1,8 @@
 "use client";
 
+// SCROLL SUBSYSTEM: this import transitively pulls in react-remove-scroll,
+// which sets body[data-scroll-locked] at runtime while a dropdown is open;
+// the override lives in the SCROLL SUBSYSTEM block in src/app/globals.css.
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { motion } from "motion/react";
 import { useState } from "react";

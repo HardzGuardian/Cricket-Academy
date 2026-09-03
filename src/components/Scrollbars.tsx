@@ -5,9 +5,12 @@ import { useEffect } from "react";
 
 /**
  * Replaces the native page scrollbar with a themed OverlayScrollbars
- * instance on <html> — a thin bar that floats over content (no reserved
+ * instance on <body> — a thin bar that floats over content (no reserved
  * gutter, so it can never visually collide with the sticky header) and
  * auto-hides after scrolling/hover stops. Renders nothing itself.
+ *
+ * SCROLL SUBSYSTEM: this is the OverlayScrollbars mount point — see the
+ * canonical contract in the SCROLL SUBSYSTEM block in src/app/globals.css.
  */
 export default function Scrollbars() {
   const [initialize] = useOverlayScrollbars({
