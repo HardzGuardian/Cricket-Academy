@@ -10,14 +10,7 @@ const btnTap = { scale: 0.9 };
 const btnHover = { scale: 1.08 };
 const btnSpring = spring(24);
 
-export default function GalleryGrid({
-  items,
-  dense = false,
-}: {
-  items: GalleryItem[];
-  /** true on the home preview (allows tall spans), false on the full gallery page */
-  dense?: boolean;
-}) {
+export default function GalleryGrid({ items }: { items: GalleryItem[] }) {
   const [openIndex, setOpenIndex] = useState(-1);
 
   const step = useCallback(
@@ -42,24 +35,17 @@ export default function GalleryGrid({
 
   return (
     <>
-      <div
-        className={`grid gap-3 ${
-          dense
-            ? "grid-cols-2 md:grid-cols-4 auto-rows-[220px]"
-            : "grid-cols-2 sm:grid-cols-3 md:grid-cols-4"
-        }`}
-      >
+      {/* Every cell is the same fixed aspect-square, so images vary in
+          crop but never in the amount of grid space they take up --
+          replaces a previous per-item ratio/row-span masonry layout
+          that made images look randomly, inconsistently sized. */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
         {items.map((g, i) => (
           <button
             key={g.id}
             type="button"
             onClick={() => setOpenIndex(i)}
-            className="relative border-0 p-0 cursor-zoom-in rounded-2xl overflow-hidden bg-cream-2 text-left"
-            style={
-              dense
-                ? { gridRow: `span ${g.span}`, aspectRatio: g.ratio }
-                : { aspectRatio: g.ratio }
-            }
+            className="relative aspect-square border-0 p-0 cursor-zoom-in rounded-2xl overflow-hidden bg-cream-2 text-left"
           >
             <Image
               src={g.src}

@@ -25,7 +25,7 @@ export default function GallerySection() {
         </MotionLink>
       </div>
 
-      <GalleryGrid items={GALLERY.slice(0, 6)} dense />
+      <GalleryGrid items={GALLERY.slice(0, 6)} />
     </section>
   );
 }
