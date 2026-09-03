@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MenuButton from "./MenuButton";
 import { MotionLink } from "./MotionLink";
 import { NAV, SITE } from "@/lib/data";
@@ -13,9 +13,34 @@ const springy = { type: "spring", stiffness: 420, damping: 26 } as const;
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Publish the header's height as --header-h so the overlay scrollbar can
+  // start below it instead of running across it. Measured rather than
+  // hardcoded, since the header grows when the logo text wraps on narrow
+  // viewports.
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    // getBoundingClientRect keeps the fractional height; offsetHeight rounds
+    // to an integer and leaves a sub-pixel sliver of bar above the header.
+    const publish = () =>
+      document.documentElement.style.setProperty(
+        "--header-h",
+        `${el.getBoundingClientRect().height}px`
+      );
+    publish();
+    if (typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(publish);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-ink/10">
+    <header
+      ref={headerRef}
+      className="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-ink/10"
+    >
       <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] py-3.5 flex items-center justify-between gap-5">
         <Link
           href="/"
