@@ -98,20 +98,29 @@ export default function Admission() {
             ))}
           </div>
 
-          <a
-            href={SITE.mapsHref}
-            target="_blank"
-            rel="noopener"
-            className="mt-6.5 block rounded-[20px] border border-ink/14 bg-cream-2 p-6 text-ink hover:border-accent transition-colors"
-          >
-            <div className="text-[10.5px] tracking-[0.2em] uppercase text-muted">
-              Ground address
-            </div>
-            <div className="mt-2.5 text-base leading-relaxed max-w-[34ch]">{SITE.address}</div>
-            <div className="mt-3.5 text-[11.5px] font-bold tracking-[0.14em] uppercase text-accent">
-              Open in maps →
-            </div>
-          </a>
+          <div className="mt-6.5 rounded-[20px] overflow-hidden border border-ink/14 bg-cream-2">
+            <iframe
+              src={SITE.mapEmbedSrc}
+              title={`Map showing ${SITE.name} at Cross Maidan, Churchgate`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="block w-full h-[240px] border-0"
+            />
+            <a
+              href={SITE.mapsHref}
+              target="_blank"
+              rel="noopener"
+              className="block p-6 text-ink border-t border-ink/14 transition-colors hover:bg-cream"
+            >
+              <div className="text-[10.5px] tracking-[0.2em] uppercase text-muted">
+                Ground address
+              </div>
+              <div className="mt-2.5 text-base leading-relaxed max-w-[34ch]">{SITE.address}</div>
+              <div className="mt-3.5 text-[11.5px] font-bold tracking-[0.14em] uppercase text-accent">
+                Get directions →
+              </div>
+            </a>
+          </div>
         </Reveal>
 
         <Reveal className="bg-ink text-cream rounded-3xl p-[clamp(24px,3vw,40px)]">

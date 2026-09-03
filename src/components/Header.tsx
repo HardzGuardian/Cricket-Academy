@@ -22,7 +22,15 @@ export default function Header() {
           className="flex items-center gap-2.5 text-ink hover:text-ink"
           onClick={() => setOpen(false)}
         >
-          <Image src={SITE.logo} alt={SITE.name} width={34} height={34} className="h-8.5 w-auto" priority />
+          <Image
+            src={SITE.logo}
+            alt={SITE.name}
+            width={34}
+            height={34}
+            unoptimized
+            priority
+            className="h-8.5 w-auto"
+          />
           <span className="grid gap-0.5 leading-none">
             <span className="font-display font-extrabold text-[15px] tracking-tight">
               {SITE.name}

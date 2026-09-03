@@ -12,6 +12,9 @@ export const SITE = {
   email: "sunilcricketacademy.94@gmail.com",
   mapsHref:
     "https://maps.google.com/maps?q=Plot%20No%20-%209%20%2C%20Corss%20maidan%2C%20M.G.%20Road%2CBehind%20F.S%20Market%2C%20Churchgate%2C%20Mumbai%2C%20Maharashtra%20400020",
+  // Keyless Google Maps embed (works on a static deploy, no API key/billing).
+  mapEmbedSrc:
+    "https://maps.google.com/maps?q=Cross%20Maidan%2C%20M.G.%20Road%2C%20Churchgate%2C%20Mumbai%2C%20Maharashtra%20400020&z=16&output=embed",
   logo: "/images/logo.png",
 };
 

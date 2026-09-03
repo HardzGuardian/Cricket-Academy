@@ -12,11 +12,14 @@ export default function Footer() {
       <div className="max-w-[1360px] mx-auto px-[clamp(18px,4vw,56px)] pt-[clamp(48px,7vw,96px)] pb-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-[clamp(30px,4vw,60px)]">
           <div>
+            {/* unoptimized: it's a 16KB transparent PNG shown at 40px — the
+                optimizer adds nothing and flattened its alpha channel. */}
             <Image
               src={SITE.logo}
               alt={SITE.name}
               width={160}
               height={40}
+              unoptimized
               className="h-10 w-auto brightness-0 invert opacity-90"
             />
             <p className="mt-5 text-[15px] leading-relaxed text-cream/62 max-w-[34ch]">
