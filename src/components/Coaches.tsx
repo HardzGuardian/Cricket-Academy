@@ -26,6 +26,7 @@ export default function Coaches() {
                   src={c.img}
                   alt={c.name}
                   fill
+                  sizes="(min-width: 1024px) 250px, 50vw"
                   className="object-cover object-[50%_20%] saturate-90 transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-[1.07]"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 px-4.5 pt-5.5 pb-4.5 bg-gradient-to-t from-[rgba(11,22,16,0.92)] to-transparent transition-all duration-500 ease-out group-hover:from-[rgba(11,22,16,0.97)] group-hover:pb-6">

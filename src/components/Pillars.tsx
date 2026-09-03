@@ -28,7 +28,7 @@ export default function Pillars() {
                   i % 2 === 0 ? "md:order-2" : "md:order-1"
                 }`}
               >
-                <Image src={p.img} alt={p.alt} fill className="object-cover" />
+                <Image src={p.img} alt={p.alt} fill sizes="(min-width: 768px) 620px, 100vw" className="object-cover" />
               </div>
             </article>
           </Reveal>

@@ -52,11 +52,12 @@ export default function Header() {
           <Image
             src={SITE.logo}
             alt={SITE.name}
-            width={34}
+            width={57}
             height={34}
             unoptimized
             priority
-            className="h-8.5 w-auto"
+            className="h-8.5"
+            style={{ width: "auto" }}
           />
           <span className="grid gap-0.5 leading-none">
             <span className="font-display font-extrabold text-[15px] tracking-tight">

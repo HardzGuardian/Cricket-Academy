@@ -17,10 +17,11 @@ export default function Footer() {
             <Image
               src={SITE.logo}
               alt={SITE.name}
-              width={160}
+              width={67}
               height={40}
               unoptimized
-              className="h-10 w-auto brightness-0 invert opacity-90"
+              className="h-10 brightness-0 invert opacity-90"
+              style={{ width: "auto" }}
             />
             <p className="mt-5 text-[15px] leading-relaxed text-cream/62 max-w-[34ch]">
               Structured cricket coaching in Mumbai — building technique, fitness and

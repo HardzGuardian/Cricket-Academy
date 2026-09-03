@@ -80,7 +80,7 @@ export default function GalleryGrid({
             onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-3xl aspect-[4/3] rounded-xl overflow-hidden animate-pop-in cursor-default"
           >
-            <Image src={active.src} alt={active.alt} fill className="object-contain" />
+            <Image src={active.src} alt={active.alt} fill sizes="(min-width: 768px) 768px, 100vw" className="object-contain" />
           </div>
           <div
             onClick={(e) => e.stopPropagation()}

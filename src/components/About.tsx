@@ -51,11 +51,11 @@ export default function About() {
 
         <Reveal className="grid gap-4">
           <div className="relative rounded-[20px] overflow-hidden aspect-[4/3] bg-cream-2">
-            <Image src="/images/about-1.jpg" alt="SCA junior squad seated with certificates, medals and a trophy" fill className="object-cover" />
+            <Image src="/images/about-1.jpg" alt="SCA junior squad seated with certificates, medals and a trophy" fill sizes="(min-width: 1024px) 620px, 100vw" className="object-cover" />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="relative rounded-[20px] overflow-hidden aspect-square bg-cream-2">
-              <Image src="/images/about-2.jpg" alt="Player holding a trophy, a medal and an SCA Certificate of Honour" fill className="object-cover" />
+              <Image src="/images/about-2.jpg" alt="Player holding a trophy, a medal and an SCA Certificate of Honour" fill sizes="(min-width: 1024px) 300px, 50vw" className="object-cover" />
             </div>
             <div className="relative rounded-[20px] bg-forest text-cream p-5.5 flex flex-col justify-end aspect-square overflow-hidden">
               <div className="absolute top-5.5 left-5.5 right-5.5 flex items-center gap-2.5">
